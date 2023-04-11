@@ -41,25 +41,13 @@ class UserController
 	public static function tab_user()
 	{
 
-		if (empty($_SESSION["message"]))	// Si y'a pas d'erreur
-		{
 			$user = new User();
 
-			$user->showDb();
+			$user->showDb($requete);
 
-			if (empty($_SESSION["message"]))
-			{
-				$_SESSION["message"] .= "Ca a marché<br>";
-				header("Location:" . BASE_PATH . "connexion");
-				exit;
-			}
-			else
-			{
-				$_SESSION["message"] .= "Ca a pas marché<br>";
-
-			}
+		include VIEWS . "admin/administration.php";
 		}
-include VIEWS . "admin/administration.php";
-	}
+
+	
 		
 }

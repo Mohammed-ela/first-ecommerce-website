@@ -29,13 +29,18 @@ include VIEWS.'inc/header.php';
 	</div>
 
 	<div class="form-floating mb-3">
-		<input type="email" class="form-control" id="email" placeholder="email" name="mail">
+		<input type="email" class="form-control" id="email" placeholder="email" name="email">
 		<label for="user">Email</label>
 	</div>
 
 	<div class="form-floating mb-3">
 		<input type="password" class="form-control" id="password" placeholder="votre mdp" name="mdp">
 		<label for="floatingPassword">Mot de Passe</label>
+	</div>
+
+	<div class="form-floating mb-3">
+		<input type="tel" class="form-control" id="number" placeholder="telephone" name="adresse">
+		<label for="floatingPassword">Adresse</label>
 	</div>
 
 	<div class="form-floating mb-3">

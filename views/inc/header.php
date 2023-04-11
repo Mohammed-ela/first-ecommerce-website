@@ -17,13 +17,13 @@
 	    <div class=" collapse navbar-collapse" id="">
 	      <ul class="navbar-nav mx-auto ">
 	        <li class="nav-item">
-	          <a class="nav-link mx-2" aria-current="page" href="#">Accueil</a>
+	          <a class="nav-link mx-2" aria-current="page" href="">Accueil</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="#">Inscription</a>
+	          <a class="nav-link mx-2" href="inscription">Inscription</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="#">Administration</a>
+	          <a class="nav-link mx-2" href="administration">Administration</a>
 	        </li>
 	    </div>
 	  </div>

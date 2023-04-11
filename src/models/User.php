@@ -5,9 +5,11 @@ class User extends Db
 	private $id_user;
 	private $first_name;
 	private $last_name;
+	private $pseudo;
 	private $mail;
 	private $password;
 	private $address;
+	private $numero;
 	private $date_creation;
 	private $statut;
 
@@ -15,24 +17,28 @@ class User extends Db
 	{
 		$this->setFirstName($dataFromPost["nom"]);
 		$this->setLastName($dataFromPost["prenom"]);
-		$this->setMail($dataFromPost["pseudo"]);
+		$this->setPseudo($dataFromPost["pseudo"]);
+		$this->setMail($dataFromPost["email"]);
 		$this->setPassword($dataFromPost["mdp"]);
-		$this->setAddress($dataFromPost["numero"]);
+		$this->setAddress($dataFromPost["adresse"]);
+		$this->setNumero($dataFromPost["numero"]);
 		$this->setStatut(0);
 	}
 
 	public function insertDb()
 	{
-		$query = "INSERT INTO user (`nom`,`prenom`,`pseudo`,`password`,`adresse`,`numero`) VALUES (?,?,?,?,?,?)";
+		$query = "INSERT INTO user (`nom`,`prenom`,`pseudo`,`email`,`password`,`adresse`,`numero`,`statut`) VALUES (?,?,?,?,?,?,?,?)";
 
 		$requetePreparee = self::getDb()->prepare($query);
 
 		$reponse = $requetePreparee->execute([
 			$this->getFirstName(),
 			$this->getLastName(),
+			$this->getPseudo(),
 			$this->getMail(),
 			$this->getPassword(),
 			$this->getAddress(),
+			$this->getNumero(),
 			$this->getStatut()
 		]);
 
@@ -69,7 +75,7 @@ class User extends Db
 			
 			}
 
-			if (!isset($_POST["mail"]) || empty($_POST["mail"]))
+			if (!isset($_POST["email"]) || empty($_POST["email"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 					  Veuillez remplir votre email !
@@ -92,31 +98,23 @@ class User extends Db
 				</div>";
 			
 			}
+			if (!isset($_POST["adresse"]) || empty($_POST["adresse"]))
+			{
+				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					  Veuillez remplir votre adresse !
+				</div>";
+			
+			}
 		
 	}
 }
 
-public function showDb()
+public static function showDb($requete)
 {	
-	$query = "SELECT * FROM user LIMIT 100";
+		$query = self::getDb()->showDb($requete);
 
-		$requetePreparee = self::getDb()->prepare($query);
+		return $query->fetchAll(PDO::FETCH_ASSOC);
 
-		$reponse = $requetePreparee->execute();
-
-		//verifie si la requete s'est bien déroulé
-	if (!$reponse)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-				  Quelque chose ne s'est pas déroulé correctement pendant la requete
-			</div>";
-	}
-	
-	if ($reponse)
-	{
-		$allUsers = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
-	
-	}
 }
 	public static function remove(){
 
@@ -264,6 +262,24 @@ public function showDb()
 	}
 
 	/**
+	 * Get the value of numero
+	 */
+	public function getNumero()
+	{
+		return $this->numero;
+	}
+
+	/**
+	 * Set the value of numero
+	 */
+	public function setNumero($numero): self
+	{
+		$this->numero = $numero;
+
+		return $this;
+	}
+
+	/**
 	 * Get the value of date_creation
 	 */
 	public function getDateCreation()
@@ -295,6 +311,24 @@ public function showDb()
 	public function setStatut($statut): self
 	{
 		$this->statut = $statut;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of statut
+	 */
+	public function getPseudo()
+	{
+		return $this->pseudo;
+	}
+
+	/**
+	 * Set the value of statut
+	 */
+	public function setPseudo($pseudo): self
+	{
+		$this->pseudo = $pseudo;
 
 		return $this;
 	}
