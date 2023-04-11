@@ -2,6 +2,7 @@
 
 class App
 {
+	//fonction utile
 	public static function showArray(array $list) : void
 	{
 		echo "<pre>";

@@ -1,9 +1,12 @@
-<?php  include VIEWS.'inc/header.php'; ?>
+<?php  
+$title = "Inscription";
+include VIEWS.'inc/header.php'; 
+?>
 
 
 			<h1 class="text-center my-5">Vous êtes au bon endroit pour vous enregistrez !</h1>
 	<?= isset($_SESSION["message"]) ? $_SESSION["message"] : ""; 
-	
+
 			$_SESSION["message"] = "";
 	?>
 	<form method="post" action="" class="w-50 mx-auto">

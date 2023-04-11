@@ -95,6 +95,66 @@ class User extends Db
 		
 	}
 }
+
+public function showDb()
+{	
+	$query = "SELECT * FROM user LIMIT 100";
+
+		$requetePreparee = self::getDb()->prepare($query);
+
+		$reponse = $requetePreparee->execute();
+
+		//verifie si la requete s'est bien déroulé
+	if (!$reponse)
+	{
+		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				  Quelque chose ne s'est pas déroulé correctement pendant la requete
+			</div>";
+	}
+	
+	if ($reponse)
+	{
+		$allUsers = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
+	
+	}
+}
+	public static function remove(){
+
+	$requete = "DELETE FROM `user` WHERE `id_user` = ?";
+
+	$requetePreparee = $bdd->prepare($requete);
+
+	$reponse = $requetePreparee->execute([
+		$_GET["id"]
+		]);
+
+	if (!$reponse)
+	{
+		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+			  La requete ne s'est pas déroulé correctement
+		</div>";
+		header("Location:" . __DIR__ . "profil");
+		exit;
+	}
+
+	if ($requetePreparee->rowCount() == 0)
+	{
+		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+			  L'utilisateur que vous essayez de supprimer, n'existe pas !
+		</div>";
+		header("Location:" . __DIR__ . "profil");
+		exit;
+	}
+
+	if ($requetePreparee->rowCount() == 1)
+	{
+		$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
+			  Vous avez bien supprimé l'utilisateur dont l'id est " . $_GET["id"] . "
+		</div>";
+		header("Location:" . URL . "user.php");
+		exit;
+	}
+	}
 	/**
 	 * Get the value of id_user
 	 */

@@ -12,5 +12,11 @@ class AppController
         include VIEWS . "app/home.php";
     }
 
+    public static function tab_user()
+    {
+        //portier pour accede a l'administration ! statu =1
+    }
+
+
 
 }
