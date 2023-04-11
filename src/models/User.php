@@ -109,13 +109,33 @@ class User extends Db
 	}
 }
 
-public static function showDb($requete)
-{	
-		$query = self::getDb()->showDb($requete);
+	public static function showDb()
+	{	
+		$query = "SELECT * FROM user LIMIT 100";
 
-		return $query->fetchAll(PDO::FETCH_ASSOC);
+		$requetePreparee = self::getDb()->prepare($query);
 
-}
+		$reponse = $requetePreparee->execute();
+
+		//verifie si la requete s'est bien déroulé
+		if (!$reponse)
+		{
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					Quelque chose ne s'est pas déroulé correctement pendant la requete
+				</div>";
+				return false;
+		}
+		
+		if ($reponse)
+		{
+			$allUsers = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
+		
+		}
+
+		return $allUsers;
+
+	}
+	
 	public static function remove(){
 
 	$requete = "DELETE FROM `user` WHERE `id_user` = ?";

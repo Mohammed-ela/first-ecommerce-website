@@ -1,7 +1,7 @@
 <?php  
 $title = "Administration";
 include VIEWS.'inc/header.php';
-$requete = User::showDb("SELECT * FROM `user` ");
+
 
 ?>
 
@@ -32,8 +32,8 @@ $requete = User::showDb("SELECT * FROM `user` ");
 <tbody class="table-striped">
 <?php       
 
-             
-             foreach ($requete as $user)
+            $allUsers=User::showDb();
+            foreach ($allUsers as $user)
              {
                  
                 ?>
@@ -46,17 +46,17 @@ $requete = User::showDb("SELECT * FROM `user` ");
                     <td><?=$user["password"]?></td>
                     <td><?=$user["adresse"]?></td>
                     <td><?=$user["numero"]?></td>
-                    <td><?=$user["mail"]?></td>
+                    <td><?=$user["email"]?></td>
                     <td><?=$user["date_de_creation"]?></td>
                     <td><?=$user["statut"]?></td>
                   <td> 
 
-                        <a href="<?=URL?>supprimer.php?id=<?=$user["id_user"]?>" class="btn btn-danger">Supprimer</a>
+                       
 
                   </td>
                   <td> 
 
-                        <a href="<?=URL?>modifier.php?id=<?=$user["id_user"]?>" class="btn btn-primary">Modifier</a>
+                       
 
                   </td>
 

@@ -42,7 +42,7 @@ class UserController
 	{
 
 			$user = new User();
-
+			$requete = User::showDb("SELECT * FROM `user` ");
 			$user->showDb($requete);
 
 		include VIEWS . "admin/administration.php";
