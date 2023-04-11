@@ -1,7 +1,7 @@
 <?php  
 $title = "Administration";
 include VIEWS.'inc/header.php';
-$requete = User::showDb("SELECT * FROM `user` ")
+$requete = User::showDb("SELECT * FROM `user` ");
 
 ?>
 
