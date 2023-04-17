@@ -11,7 +11,6 @@ class User extends Db
 	private $address;
 	private $numero;
 	private $date_creation;
-	private $statut;
 
 	public function createFromPost(array $dataFromPost)
 	{
@@ -22,12 +21,11 @@ class User extends Db
 		$this->setPassword($dataFromPost["mdp"]);
 		$this->setAddress($dataFromPost["adresse"]);
 		$this->setNumero($dataFromPost["numero"]);
-		$this->setStatut(0);
 	}
 
 	public function insertDb()
 	{
-		$query = "INSERT INTO user (`nom`,`prenom`,`pseudo`,`email`,`password`,`adresse`,`numero`,`statut`) VALUES (?,?,?,?,?,?,?,?)";
+		$query = "INSERT INTO user (`nom`,`prenom`,`pseudo`,`email`,`password`,`adresse`,`numero`) VALUES (?,?,?,?,?,?,?)";
 
 		$requetePreparee = self::getDb()->prepare($query);
 
@@ -38,8 +36,7 @@ class User extends Db
 			$this->getMail(),
 			$this->getPassword(),
 			$this->getAddress(),
-			$this->getNumero(),
-			$this->getStatut()
+			$this->getNumero()
 		]);
 
 		if (!$reponse)
@@ -138,41 +135,78 @@ class User extends Db
 	
 	public static function remove(){
 
-	$requete = "DELETE FROM `user` WHERE `id_user` = ?";
+		$query = "DELETE FROM `user` WHERE id_user = ?";
 
-	$requetePreparee = $bdd->prepare($requete);
+		$requetePreparee = self::getDb()->prepare($query);
 
-	$reponse = $requetePreparee->execute([
+		$reponse = $requetePreparee->execute([$_GET["id"]]);
+	
+		if (!$reponse)
+		{
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				  La requete ne s'est pas déroulé correctement
+			</div>";
+			header("Location:" . BASE_PATH . "administration");
+			exit;
+		}
+	
+		if ($requetePreparee->rowCount() == 0)
+		{
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				  L'utilisateur que vous essayez de supprimer, n'existe pas !
+			</div>";
+			header("Location:" . BASE_PATH . "administration");
+			exit;
+		}
+	
+		if ($requetePreparee->rowCount() == 1)
+		{
+			$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
+				  Vous avez bien supprimé l'utilisateur dont l'id est " . $_GET["id"] . "
+			</div>";
+			header("Location:" . BASE_PATH . "administration");
+			exit;
+		}
+	
+	}
+
+	public static function modifier(){
+
+		$query = "SELECT `id_user`, `nom`, `prenom`, `pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user` WHERE `id_user` = ?";
+
+		$requetePreparee = self::getDb()->prepare($query);
+
+		$reponse = $requetePreparee->execute([
+
 		$_GET["id"]
+
 		]);
 
-	if (!$reponse)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			  La requete ne s'est pas déroulé correctement
-		</div>";
-		header("Location:" . __DIR__ . "profil");
-		exit;
+		$userFromBdd = $requetePreparee->fetch(PDO::FETCH_ASSOC);
+		return $userFromBdd;
+
 	}
 
-	if ($requetePreparee->rowCount() == 0)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			  L'utilisateur que vous essayez de supprimer, n'existe pas !
-		</div>";
-		header("Location:" . __DIR__ . "profil");
-		exit;
-	}
+	// public static function select_user(){
 
-	if ($requetePreparee->rowCount() == 1)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
-			  Vous avez bien supprimé l'utilisateur dont l'id est " . $_GET["id"] . "
-		</div>";
-		header("Location:" . URL . "user.php");
-		exit;
-	}
-	}
+	// 	$query = "SELECT `email`, `password` FROM `user` WHERE `id_user` = ?";
+
+	// 	$requetePreparee = self::getDb()->prepare($query);
+
+	// 	$reponse = $requetePreparee->execute([
+
+	// 	$_GET["id"]
+
+	// 	]);
+
+	// 	$userFromBdd = $requetePreparee->fetch(PDO::FETCH_ASSOC);
+	// 	return $userFromBdd;
+	// }
+	
+	
+
+
+
 	/**
 	 * Get the value of id_user
 	 */
@@ -317,26 +351,12 @@ class User extends Db
 		return $this;
 	}
 
-	/**
-	 * Get the value of statut
-	 */
-	public function getStatut()
-	{
-		return $this->statut;
-	}
+
+
+
 
 	/**
-	 * Set the value of statut
-	 */
-	public function setStatut($statut): self
-	{
-		$this->statut = $statut;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of statut
+	 * Get the value of pseudo
 	 */
 	public function getPseudo()
 	{
@@ -344,7 +364,7 @@ class User extends Db
 	}
 
 	/**
-	 * Set the value of statut
+	 * Set the value of pseudo
 	 */
 	public function setPseudo($pseudo): self
 	{

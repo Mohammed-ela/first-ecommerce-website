@@ -2,6 +2,13 @@
 $title = "Administration";
 include VIEWS.'inc/header.php';
 
+if (!App::isconnect()) {
+      header("Location:" . BASE_PATH . "");
+}
+
+if (!App::isadmin()) {
+      header("Location:" . BASE_PATH . "");
+}
 
 ?>
 
@@ -51,12 +58,12 @@ include VIEWS.'inc/header.php';
                     <td><?=$user["statut"]?></td>
                   <td> 
 
-                       
+                  <a href="supprimer?id=<?=$user["id_user"]?>" class="btn btn-danger">Supprimer</a>   
 
                   </td>
                   <td> 
 
-                       
+                  <a href="modifier?id=<?=$user["id_user"]?>" class="btn btn-primary">Modifier</a>   
 
                   </td>
 
@@ -67,4 +74,4 @@ include VIEWS.'inc/header.php';
     </tbody>
 </table>
 
-<?php  include VIEWS.'inc/footer.php'; ?>
+<?php  include VIEWS.'inc/footer.php';?>

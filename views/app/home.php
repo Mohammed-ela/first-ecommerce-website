@@ -1,7 +1,6 @@
 <?php  
 $title = "Accueil";
 include VIEWS.'inc/header.php'; 
-
 ?>
 <h1>MA PAGE INDEX.PHP</h1>
 

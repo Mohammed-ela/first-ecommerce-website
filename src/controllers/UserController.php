@@ -22,9 +22,9 @@ class UserController
 
 				if (empty($_SESSION["message"]))
 				{
-					$_SESSION["message"] .= "Ca a marché<br>";
+					$_SESSION["message"] .= "Veuillez vous connectez <br>";
 					header("Location:" . BASE_PATH . "connexion");
-					exit;
+
 				}
 				else
 				{
@@ -38,16 +38,48 @@ class UserController
 		// echo "Mon controller register fonctionne hyper bien<br>";
 	}
 
-	public static function tab_user()
+	public static function showDb()
 	{
-
+			// nouvelle user
 			$user = new User();
-			$requete = User::showDb("SELECT * FROM `user` ");
-			$user->showDb($requete);
+			// requete select ALL
+
+			$user->showDb();
 
 		include VIEWS . "admin/administration.php";
 		}
 
+	public static function connection()
+	{
+
+		include VIEWS . "user/connection.php";
+		
+	}
+
+	public static function remove()
+	{
+			// nouvelle user
+			$user = new User();
+			// requete select ALL
+
+			$user->remove();
+		
+			
+		include VIEWS . "user/administration.php";
+		
+	}
+
+	public static function modifier()
+	{
+			// nouvelle user
+			$user = new User();
+			// requete select ALL
+
+			$user->modifier();
+		
+			//header location vers le front 
+		include VIEWS . "user/modifier.php";
+	}
 	
 		
 }
