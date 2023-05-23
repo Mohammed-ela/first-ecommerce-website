@@ -1,7 +1,7 @@
 <?php
 
 // que pour l'inscription
-class UserController
+class ProduitController
 {
 	public static function register()
 	{
@@ -10,11 +10,11 @@ class UserController
 
 		if (!empty($_POST)) 					// Si le formulaire est rempli
 		{
-			User::verifyData($_POST);	
+			Produit::verifyData($_POST);			// On vérifie toutes les infos
 
 			if (empty($_SESSION["message"]))	// Si y'a pas d'erreur
 			{
-				$user = new User();
+				$user = new Produit();
 
 				$user->createFromPost($_POST);
 
@@ -22,8 +22,8 @@ class UserController
 
 				if (empty($_SESSION["message"]))
 				{
-					$_SESSION["message"] .= "Veuillez vous connectez <br>";
-					header("Location:" . BASE_PATH . "connexion");
+					$_SESSION["message"] .= "Bravo ! Produit ajouté ! <br>";
+					header("Location:" . BASE_PATH . "categorie");
 
 				}
 				else
@@ -34,54 +34,46 @@ class UserController
 			}
 		}
 
-		
-		include VIEWS . "user/register_form.php";
+		include VIEWS . "produit/new_produit.php";
 		// echo "Mon controller register fonctionne hyper bien<br>";
 	}
 
 	public static function showDb()
 	{
 			// nouvelle user
-			$user = new User();
+			$user = new Produit();
 			// requete select ALL
 
 			$user->showDb();
 
-		include VIEWS . "admin/administration.php";
+		include VIEWS . "admin/produit.php";
 		}
-
-	public static function connection()
-	{ 
-
-		include VIEWS . "user/connection.php";
-		
-	}
 
 	public static function remove()
 	{
 			// nouvelle user
-			$user = new User();
+			$user = new Produit();
 			// requete select ALL
 
 			$user->remove();
 		
 			
-		include VIEWS . "user/administration.php";
+		include VIEWS . "admin/produit.php";
 		
 	}
 
 	public static function modifier()
 	{
 			// nouvelle user
-			$user = new User();
+			$user = new Produit();
 			// requete select ALL
 
 			$user->modifier();
 		
 			//header location vers le front 
-		include VIEWS . "user/modifier.php";
+		include VIEWS . "produit/modifier.php";
 	}
-	
-	
+
+		
 	
 }

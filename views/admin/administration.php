@@ -1,11 +1,11 @@
 <?php  
 $title = "Administration";
 include VIEWS.'inc/header.php';
-
+//si tes pas connecte 
 if (!App::isconnect()) {
       header("Location:" . BASE_PATH . "");
 }
-
+//si tes pas admin 
 if (!App::isadmin()) {
       header("Location:" . BASE_PATH . "");
 }
@@ -26,6 +26,7 @@ if (!App::isadmin()) {
             <th scope="col">id_user</th>
             <th scope="col">Nom</th>
             <th scope="col">Prenom</th>
+            <th scope="col">Picture</th>
             <th scope="col">Pseudo</th>
             <th scope="col">mots de passe</th>
             <th scope="col">adresse</th>
@@ -49,6 +50,7 @@ if (!App::isadmin()) {
                     <td><?=$user["id_user"]?></td>
                     <td><?=$user["nom"]?></td>
                     <td><?=$user["prenom"]?></td>
+                    <td><?=$user["pp"]?></td>
                     <td><?=$user["pseudo"]?></td>
                     <td><?=$user["password"]?></td>
                     <td><?=$user["adresse"]?></td>
@@ -73,5 +75,7 @@ if (!App::isadmin()) {
             ?>
     </tbody>
 </table>
+
+
 
 <?php  include VIEWS.'inc/footer.php';?>

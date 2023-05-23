@@ -23,6 +23,10 @@ $userFromBdd=user::modifier();
 			<input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenom" value="<?=!empty($userFromBdd['prenom']) ? $userFromBdd['prenom'] : "";?>">
 			 <label for="prenom">Prénom</label>
 		</div>
+		<div class="form-group mb-2">
+            <label for="profil-picture" class="form-label">modifier votre photo de profil : </label>
+			<input type="file" name="pp" id="photo" value="<?=!empty($userFromBdd['pp']) ? $userFromBdd['pp'] : "";?>" >
+        </div>
 	</div>
 
 	<div class="form-floating mb-3">

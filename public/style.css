@@ -1,3 +1,9 @@
 /* body{
     background-color: red;
 } */
+
+#picture-profil {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+}

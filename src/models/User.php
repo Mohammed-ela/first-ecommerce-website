@@ -2,36 +2,68 @@
 
 class User extends Db
 {
-	private $id_user;
+	private $id_user; //
 	private $first_name;
 	private $last_name;
+	private $pp = "default-pp.png";
 	private $pseudo;
 	private $mail;
 	private $password;
 	private $address;
 	private $numero;
-	private $date_creation;
+	private $date_creation; //
 
 	public function createFromPost(array $dataFromPost)
 	{
 		$this->setFirstName($dataFromPost["nom"]);
 		$this->setLastName($dataFromPost["prenom"]);
+
+
+		if (!empty($_FILES['pp']['name'])) {
+			$name = "profil-". uniqid() . "-" . $_FILES["pp"]["name"];
+			$this->setPp($name);
+			$img_name = $_FILES['pp']['name'];
+			$img_size = $_FILES['pp']['size'];
+			$error = $_FILES['pp']['error'];
+			$img_ext = pathinfo($img_name, PATHINFO_EXTENSION);
+				$img_ext_to_lc = strtolower($img_ext);
+				$allowed_exs = array('jpg','jpeg','png');
+			
+				if (in_array($img_ext_to_lc,$allowed_exs)) {
+
+					$destination = $_SERVER["DOCUMENT_ROOT"] . "/Projet-ws/telechargement/" . $name;
+			
+					move_uploaded_file($_FILES["pp"]["tmp_name"], $destination);
+				}else {
+					$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					  Erreur de l'extension du fichier ajouté!
+				</div>";
+				}
+		}
+
+		
 		$this->setPseudo($dataFromPost["pseudo"]);
 		$this->setMail($dataFromPost["email"]);
 		$this->setPassword($dataFromPost["mdp"]);
 		$this->setAddress($dataFromPost["adresse"]);
 		$this->setNumero($dataFromPost["numero"]);
+		
+
 	}
 
 	public function insertDb()
 	{
-		$query = "INSERT INTO user (`nom`,`prenom`,`pseudo`,`email`,`password`,`adresse`,`numero`) VALUES (?,?,?,?,?,?,?)";
+		
+		$query = "INSERT INTO user (`nom`,`prenom`,`pp`,`pseudo`,`email`,`password`,`adresse`,`numero`) VALUES (?,?,?,?,?,?,?,?)";
 
 		$requetePreparee = self::getDb()->prepare($query);
-
+		if(!empty($_FILES['pp']['name'])){
+		
+		}
 		$reponse = $requetePreparee->execute([
 			$this->getFirstName(),
 			$this->getLastName(),
+			$this->getPp(), // on recupere la donné qui est dans le setPp qui est dans private pp
 			$this->getPseudo(),
 			$this->getMail(),
 			$this->getPassword(),
@@ -98,12 +130,25 @@ class User extends Db
 			if (!isset($_POST["adresse"]) || empty($_POST["adresse"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					  Veuillez remplir votre adresse !
+					  Veuillez remplir votre adresse postale !
 				</div>";
 			
 			}
 		
 	}
+
+	if (isset($_FILES["pp"])) // Si FILES existe pour la "pp"
+	{
+
+		
+		
+	}
+
+		
+	
+
+		
+
 }
 
 	public static function showDb()
@@ -172,7 +217,7 @@ class User extends Db
 
 	public static function modifier(){
 
-		$query = "SELECT `id_user`, `nom`, `prenom`, `pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user` WHERE `id_user` = ?";
+		$query = "SELECT `id_user`, `nom`, `prenom`,`pp`,`pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user` WHERE `id_user` = ?";
 
 		$requetePreparee = self::getDb()->prepare($query);
 
@@ -351,10 +396,6 @@ class User extends Db
 		return $this;
 	}
 
-
-
-
-
 	/**
 	 * Get the value of pseudo
 	 */
@@ -369,6 +410,26 @@ class User extends Db
 	public function setPseudo($pseudo): self
 	{
 		$this->pseudo = $pseudo;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of pp
+	 */ 
+	public function getPp()
+	{
+		return $this->pp;
+	}
+
+	/**
+	 * Set the value of pp
+	 *
+	 * @return  self
+	 */ 
+	public function setPp($pp)
+	{
+		$this->pp = $pp;
 
 		return $this;
 	}

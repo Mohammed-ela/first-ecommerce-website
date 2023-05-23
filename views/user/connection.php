@@ -18,7 +18,7 @@ include VIEWS.'inc/header.php';
             <h3 class="mb-5">Se connecter</h3>
             <?= isset($_SESSION["message"]) ? $_SESSION["message"] : ""; 
 
-$_SESSION["message"] = "";
+            $_SESSION["message"] = "";
 ?>
             <div class="form-outline mb-4">
 			<label class="form-label" for="typeEmailX-2">Email</label>
@@ -32,6 +32,7 @@ $_SESSION["message"] = "";
 
 
             </div>
+            <a href="inscription" class="btn btn-secondary mt-3">S'enregistrer</a>
 			<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
 
         </div>
@@ -55,8 +56,10 @@ $_SESSION["message"] = "";
 
 
 <?php  
+if (!empty($_SESSION['user'])) {
+  var_dump($_SESSION['user']);
+}
 
-var_dump($_SESSION['user']);
 include VIEWS.'inc/footer.php'; 
 
 ?>

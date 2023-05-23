@@ -12,10 +12,10 @@ class App
 
 	public static function isconnect()
 	{
-	if (!empty($_SESSION['user'])) {
+	if (!empty($_SESSION['user'])) { // si cest pas vide ( donc connecté)
 		return true;
 	}else {
-		return false;
+		return false; // si cest vide (non connecte)
 	}
 	}
 
@@ -26,6 +26,13 @@ class App
 	}else {
 		return false;
 	}
+	}
+
+	public static function deconnexion()
+	{
+		session_destroy(); // supprimer la session
+		header("Location:" . BASE_PATH . ""); // redirection page d'accueil
+		
 	}
 	
 }

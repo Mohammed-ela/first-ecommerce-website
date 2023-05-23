@@ -1,3 +1,15 @@
+<?php
+
+$connected=App::isconnect(); // j'enregistre ma fonction isconnect() dans une variable
+
+$admin=null;
+
+if ($connected=='false') { // si je suis connecté
+$admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr-FR">
   <head>
@@ -19,15 +31,71 @@
 	        <li class="nav-item">
 	          <a class="nav-link mx-2" aria-current="page" href="&emsp;">Accueil</a>
 	        </li>
+
+			<!-- incription / connection -->
+			<?php
+			if (!$connected=='false') {
+			?>
 	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="inscription">Inscription</a>
+	          <a class="nav-link mx-2" href="inscription">Inscription</a> 
 	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="administration">Administration</a>
-	        </li>
+			<?php	
+			}
+			?>
+			<?php
+			if (!$connected=='false') {
+			?>
 			<li class="nav-item">
 	          <a class="nav-link mx-2" href="connection">Connection</a>
 	        </li>
+			<?php	
+			}
+			?>
+				<!-- Acces au crud uniquement au ADMIN -->
+			<?php
+			if ($admin=='false') {
+			?>
+	        <li class="nav-item">
+	          <a class="nav-link mx-2" href="administration">Administration</a>
+	        </li>
+			<?php	
+			}
+			?>
+			<?php
+			if ($admin=='false') {
+			?>
+	        <li class="nav-item">
+	          <a class="nav-link mx-2" href="categorie">Categorie</a>
+	        </li>
+			<?php	
+			}
+			?>
+			<?php
+			if ($admin=='false') {
+			?>
+	        <li class="nav-item">
+	          <a class="nav-link mx-2" href="produit">Produit</a>
+	        </li>
+			<?php	
+			}
+			?>
+			<!-- bouton deconnexion qui saffiche quand on est connecte -->
+			<li class="nav-item">  
+	          <a class="nav-link mx-2" href="deconnexion"><?=$connected=='false' ? "Se deconnecter" : "";?></a> 
+	        </li>
+
+						<!-- gestion du profil  -->
+			<?php
+			if ($connected=='false') {
+			?>
+			<li class="nav-item card-body text-center">
+	          <a class="nav-link mx-2" href="mon-profil"><img src="<?= TELECHARGEMENT. $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
+			  <a class="nav-link mx-2" href="user"> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </a> 
+	        </li>	
+			<?php	
+			}
+			?>
+
 	    </div>
 	  </div>
 	</nav>
