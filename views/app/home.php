@@ -10,8 +10,12 @@ include VIEWS.'inc/header.php';
 
 <p> <?=$connected=='false' ? "Bienvenue ".$_SESSION['user']['pseudo'] : "";?>  </p>
 
+
 <?php  
-// var_dump($_SESSION['user']);
+if (isset($_SESSION['user'])) {
+    var_dump($_SESSION['user']);
+}
+
 ?>
 
 <?php  include VIEWS.'inc/footer.php'; ?>

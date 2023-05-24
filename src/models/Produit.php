@@ -7,7 +7,7 @@ class Produit extends Db
 	private $description;
 	private $couleur;
     private $autonomie;
-    private $photo;
+    private $photo='no-image.png';
     private $avis;
     private $prix;
     private $date_creation; //
@@ -19,14 +19,33 @@ class Produit extends Db
 		$this->setDescription($dataFromPost["description"]);
 		$this->setCouleur($dataFromPost["couleur"]);
         $this->setAutonomie($dataFromPost["autonomie"]);
-        $this->setPhoto($dataFromPost["photo"]);
+
+		if (!empty($_FILES['photo']['name'])) {
+			$name = "produit-". $_FILES["photo"]["name"];
+			$this->setPhoto($name);
+			$img_name = $_FILES['photo']['name'];
+			$img_ext = pathinfo($img_name, PATHINFO_EXTENSION);
+				$img_ext_to_lc = strtolower($img_ext);
+				$allowed_exs = array('jpg','jpeg','png');
+				if (in_array($img_ext_to_lc,$allowed_exs)) {
+
+					$destination = $_SERVER["DOCUMENT_ROOT"] . "/Projet-ws/telechargement/produit/" . $name;			
+					move_uploaded_file($_FILES["photo"]["tmp_name"], $destination);
+				}else {
+					$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					  Erreur de l'extension du fichier ajouté!
+				</div>";
+				}
+		}
+
         $this->setAvis($dataFromPost["avis"]);
-        $this->setPrix($dataFromPost["prix"]);  
+        $this->setPrix($dataFromPost["prix"]); 
+		$this->setCategorie_id($_POST['categorie']); 
 	}
 
 	public function insertDb()
 	{
-		$query = "INSERT INTO montre (`titre`, `description`, `couleur`, `autonomie`, `photo`, `avis`, `prix`) VALUES (?,?,?,?,?,?,?)";
+		$query = "INSERT INTO montre (`titre`, `description`, `couleur`, `autonomie`, `photo`, `avis`, `prix`,`categorie_id`) VALUES (?,?,?,?,?,?,?,?)";
         
 		$requetePreparee = self::getDb()->prepare($query);
 
@@ -37,7 +56,8 @@ class Produit extends Db
             $this->getAutonomie(),
             $this->getPhoto(),
             $this->getAvis(),
-            $this->getPrix()
+            $this->getPrix(),
+			$this->getCategorie_id()
 			]);
           
            
@@ -58,13 +78,11 @@ class Produit extends Db
 			
 			}
 		
-			if (!isset($_POST["photo"]) || empty($_POST["photo"]))
-			{
-				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					  Veuillez remplir le chemin de l'image du produit !
-				</div>";
+			// if (!isset($_FILES["photo"]) || empty($_FILES["photo"]))
+			// {
+			// 	$this->setPhoto("no-image.png"); 
 			
-			}
+			// }
 
 			if (!isset($_POST["description"]) || empty($_POST["description"]))
 			{
@@ -131,7 +149,6 @@ class Produit extends Db
 		if ($reponse)
 		{
 			$allUsers = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
-		
 		}
 
 		return $allUsers;

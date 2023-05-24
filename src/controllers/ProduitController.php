@@ -10,12 +10,16 @@ class ProduitController
 
 		if (!empty($_POST)) 					// Si le formulaire est rempli
 		{
-			Produit::verifyData($_POST);			// On vérifie toutes les infos
+
+			Produit::verifyData($_POST);		// On vérifie toutes les infos
 
 			if (empty($_SESSION["message"]))	// Si y'a pas d'erreur
 			{
-				$user = new Produit();
+				// var_dump($_POST);
+				// $categorie_id = $_POST['categorie'];
 
+				$user = new Produit();
+	
 				$user->createFromPost($_POST);
 
 				$user->insertDb();
@@ -23,7 +27,7 @@ class ProduitController
 				if (empty($_SESSION["message"]))
 				{
 					$_SESSION["message"] .= "Bravo ! Produit ajouté ! <br>";
-					header("Location:" . BASE_PATH . "categorie");
+					header("Location:" . BASE_PATH . "produit");
 
 				}
 				else

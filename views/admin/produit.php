@@ -40,9 +40,10 @@ if (!App::isadmin()) {
 <?php       
 
             $allUsers=Produit::showDb();
+            
             foreach ($allUsers as $user)
              {
-                 
+
                 ?>
 
                 <tr>
@@ -51,7 +52,8 @@ if (!App::isadmin()) {
                         <td><?=$user["description"]?></td>
                         <td><?=$user["couleur"]?></td>
                         <td><?=$user["autonomie"]?></td>
-                        <td><?=$user["photo"]?></td>
+                        <td><img src="<?= TELECHARGEMENT. "produit/". $user["photo"] ?>" id="picture-admin"></td>
+                        <!-- <td><img src= alt="montre"></td> -->
                         <td><?=$user["avis"]?></td>
                         <td><?=$user["prix"]?></td>
                         <td><?=$user["date_creation"]?></td>
@@ -70,6 +72,7 @@ if (!App::isadmin()) {
                  
                 </tr>
                 <?php
+
              }
             ?>
     </tbody>

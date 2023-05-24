@@ -32,7 +32,7 @@ class AppController extends Db
 
         $nom = strtolower(htmlspecialchars($_POST["nom"]));
         $prenom = strtolower(htmlspecialchars($_POST["prenom"]));
-        $pp = $_FILES["pp"];
+        $pp = htmlspecialchars($_POST["pp"]);
         $pseudo = strtolower(htmlspecialchars($_POST["pseudo"]));
         $email = strtolower(htmlspecialchars($_POST["email"]));
         $password = strtolower(htmlspecialchars($_POST["mdp"]));
@@ -155,22 +155,35 @@ class AppController extends Db
         
     }
 
-
 	
     public static function login()
 	{
         
+        $requete = "SELECT `password` FROM `user` WHERE `email` = ?";
+        $requetePreparees = self::getDb()->prepare($requete);
+        // password_verify($_POST["monmdp"], $hash)
+        $rep = $requetePreparees->execute([
+			$_POST["monemail"]
+	    ]);
+        if ($rep) {
+            $mdp_hash = $requetePreparees->fetch(PDO::FETCH_ASSOC);
+        }
+
+
+        $Password_bypost = $_POST['monmdp'];
+
+        if (password_verify($Password_bypost, $mdp_hash['password'])) {
+            echo("bravo vous etes co");
 
 		$query = "SELECT `id_user`, `nom`, `prenom`, `pp`, `pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user`  WHERE `email` = ? AND `password` = ?";
 
-		$requetePreparee = self::getDb()->prepare($query);
-        
-        $reponse = $requetePreparee->execute([
+		$queryPreparee = self::getDb()->prepare($query);
+        $reponse = $queryPreparee->execute([
 			$_POST["monemail"],
-			$_POST["monmdp"]
+			$mdp_hash['password']
 	]);
         // tableau associatif d'element :
-        $Users_connecte = $requetePreparee->fetch(PDO::FETCH_ASSOC);
+        $Users_connecte = $queryPreparee->fetch(PDO::FETCH_ASSOC);
 		
 
 		//verifie si la requete s'est bien déroulé
@@ -182,7 +195,7 @@ class AppController extends Db
 		}
 
 		// si authentification reussi
-		if ($requetePreparee->rowCount() == 1)
+		if ($queryPreparee->rowCount() == 1)
 		{
             $_SESSION['user']= $Users_connecte;
             header("Location:" . BASE_PATH . "");
@@ -193,19 +206,15 @@ class AppController extends Db
 		}
 
        // erreur authentification
-        if ($requetePreparee->rowCount() == 0) {
+        if ($queryPreparee->rowCount() == 0) {
             header("Location:" . BASE_PATH . "connection");
             $_SESSION["message"] = "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
             Erreur d'authentification ! veuillez réssayer
       </div>";
         }
-    
-
-    
-        
-	
 
 	}
+}
 
     public static function isconnect()
     {

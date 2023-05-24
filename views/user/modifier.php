@@ -24,8 +24,10 @@ $userFromBdd=user::modifier();
 			 <label for="prenom">Prénom</label>
 		</div>
 		<div class="form-group mb-2">
-            <label for="profil-picture" class="form-label">modifier votre photo de profil : </label>
-			<input type="file" name="pp" id="photo" value="<?=!empty($userFromBdd['pp']) ? $userFromBdd['pp'] : "";?>" >
+
+		<label for="profil-picture" class="form-label">Modifier votre ancienne photo de profil :&nbsp;</label><span name=picture-profil><?=!empty($userFromBdd['pp']) ? $userFromBdd['pp'] : "";?></span><br>
+		<input type="file" name="pp" id="photo" value="" > 
+			
         </div>
 	</div>
 
@@ -55,7 +57,11 @@ $userFromBdd=user::modifier();
 	</div>
 
     <div class="form-floating mb-3">
-		<input type="text" class="form-control" id="number" placeholder="le statut" name="statut" value="<?=!empty($userFromBdd['statut']) ? $userFromBdd['statut'] : "";?>">
+		<select class="form-select"  name="statut">
+			<option selected><?=!empty($userFromBdd['statut']) ? $userFromBdd['statut'] : "Choisir une option";?></option>
+			<option value="User">0--User</option>
+			<option value="Admin">1--Admin</option>
+		</select>
 		<label for="statut">statut</label>
 	</div>
 

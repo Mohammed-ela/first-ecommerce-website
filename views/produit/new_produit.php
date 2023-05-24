@@ -9,7 +9,7 @@ include VIEWS.'inc/header.php';
 
 			$_SESSION["message"] = "";
 	?>
-	<form method="post" action="" class="w-50 mx-auto">
+	<form method="post" action="" class="w-50 mx-auto" enctype="multipart/form-data">
 	
 	<div class="row g-3">
 		<div class="form-floating col-md-6 mb-3">
@@ -17,14 +17,9 @@ include VIEWS.'inc/header.php';
 			<label for="nom">Titre</label>
 		</div>
 
-		<div class="form-floating col-md-6 mb-3">
-			<input type="text" class="form-control" id="prenom" placeholder="photo" name="photo">
-			 <label for="prenom">Picture</label>
-		</div>
-
         <div class="form-group">
             <label for="exampleFormControlFile1">Ajouter une image</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo">
         </div>
 	</div>
 
@@ -34,7 +29,6 @@ include VIEWS.'inc/header.php';
 	</div>
 
 	<?php 
-
 	$allCategorie=Categorie::showDb();
 	?>
 

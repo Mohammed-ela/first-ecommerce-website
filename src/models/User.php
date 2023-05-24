@@ -31,8 +31,7 @@ class User extends Db
 			
 				if (in_array($img_ext_to_lc,$allowed_exs)) {
 
-					$destination = $_SERVER["DOCUMENT_ROOT"] . "/Projet-ws/telechargement/" . $name;
-			
+					$destination = $_SERVER["DOCUMENT_ROOT"] . "/Projet-ws/telechargement/user/" . $name;			
 					move_uploaded_file($_FILES["pp"]["tmp_name"], $destination);
 				}else {
 					$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
@@ -44,7 +43,7 @@ class User extends Db
 		
 		$this->setPseudo($dataFromPost["pseudo"]);
 		$this->setMail($dataFromPost["email"]);
-		$this->setPassword($dataFromPost["mdp"]);
+		$this->setPassword(password_hash($dataFromPost['mdp'], PASSWORD_DEFAULT));
 		$this->setAddress($dataFromPost["adresse"]);
 		$this->setNumero($dataFromPost["numero"]);
 		
@@ -57,9 +56,7 @@ class User extends Db
 		$query = "INSERT INTO user (`nom`,`prenom`,`pp`,`pseudo`,`email`,`password`,`adresse`,`numero`) VALUES (?,?,?,?,?,?,?,?)";
 
 		$requetePreparee = self::getDb()->prepare($query);
-		if(!empty($_FILES['pp']['name'])){
 		
-		}
 		$reponse = $requetePreparee->execute([
 			$this->getFirstName(),
 			$this->getLastName(),
