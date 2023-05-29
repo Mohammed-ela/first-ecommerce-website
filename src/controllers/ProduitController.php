@@ -18,11 +18,11 @@ class ProduitController
 				// var_dump($_POST);
 				// $categorie_id = $_POST['categorie'];
 
-				$user = new Produit();
+				$product = new Produit();
 	
-				$user->createFromPost($_POST);
+				$product->createFromPost($_POST);
 
-				$user->insertDb();
+				$product->insertDb();
 
 				if (empty($_SESSION["message"]))
 				{
@@ -45,21 +45,21 @@ class ProduitController
 	public static function showDb()
 	{
 			// nouvelle user
-			$user = new Produit();
+			$product = new Produit();
 			// requete select ALL
 
-			$user->showDb();
+			$product->showDb();
 
 		include VIEWS . "admin/produit.php";
 		}
 
 	public static function remove()
 	{
-			// nouvelle user
-			$user = new Produit();
+			// nouvelle product
+			$product = new Produit();
 			// requete select ALL
 
-			$user->remove();
+			$product->remove();
 		
 			
 		include VIEWS . "admin/produit.php";
@@ -68,16 +68,24 @@ class ProduitController
 
 	public static function modifier()
 	{
-			// nouvelle user
-			$user = new Produit();
+			// nouvelle product
+			$product = new Produit();
 			// requete select ALL
 
-			$user->modifier();
+			$product->modifier();
 		
 			//header location vers le front 
 		include VIEWS . "produit/modifier.php";
 	}
 
+	public static function fetchAllProduct()
+    {
+        $produit = new Produit();
+		
+     	$produit->showDb();
+
+		include VIEWS . "produit/produit.php";
+    }
 		
 	
 }

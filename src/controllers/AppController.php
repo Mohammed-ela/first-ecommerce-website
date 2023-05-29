@@ -6,23 +6,10 @@ class AppController extends Db
     public static function index()
     {
         //page d'accueil a modifier front
-        echo "je suis bien dans la page d'accueil<br>";
+        echo "Je suis dans appController Je dois faire du back ici <br>";
        
         
         include VIEWS . "app/home.php";
-    }
-
-    public static function tab_user()
-    {
-        //portier pour accede a l'administration ! statu =1
-        
-    }
-
-    public static function connection()
-    {
-        //portier pour accede a l'administration ! statu =1
-
-        
     }
 
     public static function enregistrement()
@@ -173,7 +160,7 @@ class AppController extends Db
         $Password_bypost = $_POST['monmdp'];
 
         if (password_verify($Password_bypost, $mdp_hash['password'])) {
-            echo("bravo vous etes co");
+
 
 		$query = "SELECT `id_user`, `nom`, `prenom`, `pp`, `pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user`  WHERE `email` = ? AND `password` = ?";
 
@@ -200,29 +187,17 @@ class AppController extends Db
             $_SESSION['user']= $Users_connecte;
             header("Location:" . BASE_PATH . "");
             $_SESSION["message"] = "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
-            Bonjour " .$_SESSION['user']['prenom']. "</div>";
+            Bonjour " .$_SESSION['user']['prenom']." ! </div>";
 
-            // echo($_SESSION['user']['nom']);
 		}
-
-       // erreur authentification
-        if ($queryPreparee->rowCount() == 0) {
-            header("Location:" . BASE_PATH . "connection");
+        // si authentification échoue
+	}else {
+        header("Location:" . BASE_PATH . "connection");
             $_SESSION["message"] = "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-            Erreur d'authentification ! veuillez réssayer
+            Votre nom de compte ou votre mot de passe est incorrect.
       </div>";
-        }
-
-	}
+    }
 }
 
-    public static function isconnect()
-    {
-        if ($authOK = 'false') {
-            return false;
-        }else {
-            return true;
-        }
-    }
 
 }

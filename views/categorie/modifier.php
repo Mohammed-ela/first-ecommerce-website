@@ -1,6 +1,13 @@
 <?php  
 $title = "Modification";
-include VIEWS.'inc/header.php'; 
+include VIEWS.'inc/header.php';
+if (!App::isconnect()) {
+	header("Location:" . BASE_PATH . "");
+}
+
+if (!App::isadmin()) {
+	header("Location:" . BASE_PATH . "");
+}
 $userFromBdd=Categorie::modifier();
 // app::showArray($userFromBdd);
 ?>

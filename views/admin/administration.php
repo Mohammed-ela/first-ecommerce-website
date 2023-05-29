@@ -45,19 +45,20 @@ if (!App::isadmin()) {
              {
                  
                 ?>
-
+           
                 <tr>
                     <td><?=$user["id_user"]?></td>
                     <td><?=$user["nom"]?></td>
                     <td><?=$user["prenom"]?></td>
-                    <td><?=$user["pp"]?></td>
+                    <td><img src="<?= TELECHARGEMENT. "user/". $user["pp"] ?>" id="profil picture"></td>
                     <td><?=$user["pseudo"]?></td>
                     <td><?=$user["password"]?></td>
                     <td><?=$user["adresse"]?></td>
                     <td><?=$user["numero"]?></td>
                     <td><?=$user["email"]?></td>
                     <td><?=$user["date_de_creation"]?></td>
-                    <td><?=$user["statut"]?></td>
+                    <td><?=$user["statut"]=='1' ? 'admin' : 'user' ?></td>
+
                   <td> 
 
                   <a href="supprimer?id=<?=$user["id_user"]?>" class="btn btn-danger">Supprimer</a>   
@@ -70,12 +71,12 @@ if (!App::isadmin()) {
                   </td>
 
                 </tr>
+
                 <?php
              }
             ?>
     </tbody>
 </table>
-
 
 
 <?php  include VIEWS.'inc/footer.php';?>

@@ -33,25 +33,25 @@ if (!App::isadmin()) {
 <tbody class="table-striped">
 <?php       
 
-            $allUsers=Categorie::showDb();
-            foreach ($allUsers as $user)
+            $allcategorie=Categorie::showDb();
+            foreach ($allcategorie as $categorie)
              {
                  
                 ?>
 
                 <tr>
-                        <td><?=$user["id_categorie"]?></td>
-                        <td><?=$user["name"]?></td>
-                        <td><?=$user["description"]?></td>
-                        <td><?=$user["picture"]?></td>
+                        <td><?=$categorie["id_categorie"]?></td>
+                        <td><?=$categorie["name"]?></td>
+                        <td><?=$categorie["description"]?></td>
+                        <td><img src="<?= TELECHARGEMENT. "categorie/". $categorie["picture"] ?>" id="picture-admin"></td>
                     <td> 
 
-                  <a href="supprimer_cat?id=<?=$user["id_categorie"]?>" class="btn btn-danger">Supprimer</a>   
+                  <a href="supprimer_cat?id=<?=$categorie["id_categorie"]?>" class="btn btn-danger">Supprimer</a>   
 
                   </td>
                   <td> 
 
-                  <a href="modifier_cat?id=<?=$user["id_categorie"]?>" class="btn btn-primary">Modifier</a>   
+                  <a href="modifier_cat?id=<?=$categorie["id_categorie"]?>" class="btn btn-primary">Modifier</a>   
 
                   </td>
                  

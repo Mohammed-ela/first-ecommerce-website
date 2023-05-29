@@ -8,7 +8,7 @@ include VIEWS.'inc/header.php';
 
 
 
-<p> <?=$connected=='false' ? "Bienvenue ".$_SESSION['user']['pseudo'] : "";?>  </p>
+<p> <?=$connected=='false' ? "Bienvenue ".$_SESSION['user']['pseudo']." !" : "";?>  </p>
 
 
 <?php  

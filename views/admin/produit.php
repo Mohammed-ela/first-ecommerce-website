@@ -39,34 +39,34 @@ if (!App::isadmin()) {
 <tbody class="table-striped">
 <?php       
 
-            $allUsers=Produit::showDb();
+            $allproduct=Produit::showDb();
             
-            foreach ($allUsers as $user)
+            foreach ($allproduct as $product)
              {
 
                 ?>
 
                 <tr>
-                        <td><?=$user["id_montre"]?></td>
-                        <td><?=$user["titre"]?></td>
-                        <td><?=$user["description"]?></td>
-                        <td><?=$user["couleur"]?></td>
-                        <td><?=$user["autonomie"]?></td>
-                        <td><img src="<?= TELECHARGEMENT. "produit/". $user["photo"] ?>" id="picture-admin"></td>
+                        <td><?=$product["id_montre"]?></td>
+                        <td><?=$product["titre"]?></td>
+                        <td><?=$product["description"]?></td>
+                        <td><?=$product["couleur"]?></td>
+                        <td><?=$product["autonomie"]?></td>
+                        <td><img src="<?= TELECHARGEMENT. "produit/". $product["photo"] ?>" id="picture-admin"></td>
                         <!-- <td><img src= alt="montre"></td> -->
-                        <td><?=$user["avis"]?></td>
-                        <td><?=$user["prix"]?></td>
-                        <td><?=$user["date_creation"]?></td>
-                        <td><?=$user["categorie_id"]?></td>
+                        <td><?=$product["avis"]?></td>
+                        <td><?=$product["prix"]?></td>
+                        <td><?=$product["date_creation"]?></td>
+                        <td><?=$product["categorie_id"]?></td>
 
                     <td> 
 
-                  <a href="supprimer_prd?id=<?=$user["id_montre"]?>" class="btn btn-danger">Supprimer</a>   
+                  <a href="supprimer_prd?id=<?=$product["id_montre"]?>" class="btn btn-danger">Supprimer</a>   
 
                   </td>
                   <td> 
 
-                  <a href="modifier_prd?id=<?=$user["id_montre"]?>" class="btn btn-primary">Modifier</a>   
+                  <a href="modifier_prd?id=<?=$product["id_montre"]?>" class="btn btn-primary">Modifier</a>   
 
                   </td>
                  

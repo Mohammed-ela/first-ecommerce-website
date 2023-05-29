@@ -14,11 +14,11 @@ class CategorieController
 
 			if (empty($_SESSION["message"]))	// Si y'a pas d'erreur
 			{
-				$user = new Categorie();
+				$categorie = new Categorie();
 
-				$user->createFromPost($_POST);
+				$categorie->createFromPost($_POST);
 
-				$user->insertDb();
+				$categorie->insertDb();
 
 				if (empty($_SESSION["message"]))
 				{
@@ -41,21 +41,21 @@ class CategorieController
 	public static function showDb()
 	{
 			// nouvelle user
-			$user = new Categorie();
+			$categorie = new Categorie();
 			// requete select ALL
 
-			$user->showDb();
+			$categorie->showDb();
 
 		include VIEWS . "admin/categorie.php";
 		}
 
 	public static function remove()
 	{
-			// nouvelle user
-			$user = new Categorie();
+			// nouvelle categorie
+			$categorie = new Categorie();
 			// requete select ALL
 
-			$user->remove();
+			$categorie->remove();
 		
 			
 		include VIEWS . "admin/categorie.php";
@@ -64,11 +64,11 @@ class CategorieController
 
 	public static function modifier()
 	{
-			// nouvelle user
-			$user = new Categorie();
+			// nouvelle categorie
+			$categorie = new Categorie();
 			// requete select ALL
 
-			$user->modifier();
+			$categorie->modifier();
 		
 			//header location vers le front 
 		include VIEWS . "categorie/modifier.php";
@@ -77,8 +77,10 @@ class CategorieController
 	public static function fetchAllCategorie()
     {
         $categorie = new Categorie();
-        $allCategorie = $categorie->showDb();
-        return $allCategorie;
+		
+     	$categorie->showDb();
+
+		include VIEWS . "categorie/categorie.php";
     }
 		
 }

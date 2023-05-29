@@ -9,7 +9,7 @@ class App
 		print_r($list);
 		echo "</pre>";
 	}
-
+//si on est connecte 
 	public static function isconnect()
 	{
 	if (!empty($_SESSION['user'])) { // si cest pas vide ( donc connecté)

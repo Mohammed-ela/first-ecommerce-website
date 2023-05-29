@@ -82,11 +82,11 @@ class Categorie extends Db
 		
 		if ($reponse)
 		{
-			$allUsers = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
+			$allcategorie = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
 		
 		}
 
-		return $allUsers;
+		return $allcategorie;
 
 	}
 	
