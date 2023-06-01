@@ -82,6 +82,14 @@ class UserController
 		include VIEWS . "user/modifier.php";
 	}
 	
-	
+	public static function my_profil(){
+		include VIEWS . "user/my_profil.php";
+	}
+	public static function my_profil_register(){
+
+		User::my_profil_register();
+
+		include VIEWS . "user/my_profil.php";
+	}
 	
 }

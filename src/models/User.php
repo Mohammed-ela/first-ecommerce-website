@@ -228,7 +228,46 @@ class User extends Db
 		return $userFromBdd;
 
 	}
+	public static function my_profil_register(){
+	$query = "UPDATE `user` SET `nom`=?,`prenom`=?,`pp`=?,`pseudo`=?,`email`=?,`adresse`=?,`numero`=? WHERE `id_user` = ?";
 
+		$requetePreparee = self::getDb()->prepare($query);
+
+		$reponse = $requetePreparee->execute([
+		$_POST['nom'],
+		$_POST['prenom'],
+		$_POST['pp'],
+		$_POST['pseudo'],
+		$_POST['email'],
+		$_POST['adresse'],
+		$_POST['numero'],
+		$_GET["id"]
+
+		]);
+
+		if ($reponse) {
+			$_SESSION['user']['nom']=$_POST['nom'];
+			$_SESSION['user']['prenom']=$_POST['prenom'];
+			$_SESSION['user']['pp']=$_POST['pp'];
+			$_SESSION['user']['pseudo']=$_POST['pseudo'];
+			$_SESSION['user']['email']=$_POST['email'];
+			$_SESSION['user']['adresse']=$_POST['adresse'];
+			$_SESSION['user']['numero']=$_POST['numero'];
+
+			
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				 Bravo ".$_SESSION['user']['prenom']."Vous avez bien modifier votre profil !
+			</div>";
+			header("Location:" . BASE_PATH . "mon-profil");
+		}else {
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				 Erreur lors de la modification de votre profil ! 
+			</div>";
+			header("Location:" . BASE_PATH . "mon-profil");
+			exit();
+		}
+
+	}
 	// public static function select_user(){
 
 	// 	$query = "SELECT `email`, `password` FROM `user` WHERE `id_user` = ?";

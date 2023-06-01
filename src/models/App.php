@@ -34,5 +34,7 @@ class App
 		header("Location:" . BASE_PATH . ""); // redirection page d'accueil
 		
 	}
+
+
 	
 }

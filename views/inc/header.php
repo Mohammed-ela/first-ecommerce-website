@@ -101,7 +101,7 @@ $admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
 			if ($connected=='false') {
 			?>
 			<li class="nav-item card-body text-center">
-	          <a class="nav-link mx-2" href="mon-profil"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
+	          <a class="nav-link mx-2" href="mon-profil?id=<?=$_SESSION['user']['id_user'] ?>"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
 			  <a class="nav-link mx-2" href="user"> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </a> 
 	        </li>	
 			
