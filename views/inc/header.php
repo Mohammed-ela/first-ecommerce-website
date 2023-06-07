@@ -18,98 +18,93 @@ $admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
 	<meta name="keyword" content="Projet E-commerce , Projet fin d'année , montre connecte , smartwatch , Marketplace ">
     <meta name="description" content="Synkro est un site E-commerce proposant une panoplie de montre à vendre ! ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../reset.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
+    <link rel="stylesheet" href="<?= ASSETS. "css/styles.css"?>">
   </head>
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark p-3 " style="background-color:#1C2331;" id="headerNav">
-	  <div class="container-fluid">
-	 
-	    <div class=" collapse navbar-collapse" id="">
-	      <ul class="navbar-nav mx-auto ">
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" aria-current="page" href="&emsp;">Accueil</a>
-	        </li>
-			<!-- incription / connection -->
 
-			<li class="nav-item">
-	          <a class="nav-link mx-2" href="Categorie">Categorie</a>
-	        </li>
+<nav class="navbar">
 
-			<!-- incription / connection -->
-			<?php
-			if (!$connected=='false') {
-			?>
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="inscription">Inscription</a> 
+			<!-- 1ER BOITE -->
+		  <div class="logo">
+			<img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro" >
+		  </div>
+
+			<!-- 2EME BOITE -->
+		<div class="flex-mid">
+			<!-- -->
+	        <li class="item-nav">
+	          <a class="link-nav" aria-current="page" href="&emsp;">Accueil</a>
 	        </li>
-			<?php	
-			}
-			?>
-			<?php
-			if (!$connected=='false') {
-			?>
-			<li class="nav-item">
-	          <a class="nav-link mx-2" href="connection">Connection</a>
+			<li class="item-nav">
+	          <a class="link-nav" href="Categorie">Catégories</a>
 	        </li>
-			<?php	
-			}
-			?>
+			<li class="item-nav">
+	          <a class="link-nav" href="Categorie">Produits</a>
+			  <!-- ajout produit avec différent id -->
+	        </li>				
+		</div>
+			
+
 				<!-- Acces au crud uniquement au ADMIN -->
 			<?php
 			if ($admin=='false') {
 			?>
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="administration">ADMIN_Administration</a>
+	        <li class="">
+	          <a class="" href="administration">ADMIN_Administration</a>
+	        </li>
+	        <li class="">
+	          <a class="" href="categorie">ADMIN_Categorie</a>
+	        </li>
+	        <li class="">
+	          <a class="" href="produit">ADMIN_Produit</a>
 	        </li>
 			<?php	
 			}
 			?>
-			<?php
-			if ($admin=='false') {
-			?>
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="categorie">ADMIN_Categorie</a>
-	        </li>
-			<?php	
-			}
-			?>
-			<?php
-			if ($admin=='false') {
-			?>
-	        <li class="nav-item">
-	          <a class="nav-link mx-2" href="produit">ADMIN_Produit</a>
-	        </li>
-			<?php	
-			}
-			?>
+
+			<!-- 3ER BOITE -->
 			<!-- bouton deconnexion qui saffiche quand on est connecte -->
 			<?php
 			if ($connected=='false') {
 			?>
-
-			<li class="nav-item">  
-	          <a class="nav-link mx-2" href="deconnexion">Se deconnecter</a> 
+			<div class="user">
+			<li class="item-nav">  
+	          <a class="link-nav" href="deconnexion">Se deconnecter</a> 
 	        </li>
-
-			<?php
-			}
-			?>
-
 						<!-- gestion du profil  -->
-			<?php
-			if ($connected=='false') {
-			?>
-			<li class="nav-item card-body text-center">
-	          <a class="nav-link mx-2" href="mon-profil?id=<?=$_SESSION['user']['id_user'] ?>"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
-			  <a class="nav-link mx-2" href="user"> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </a> 
+			<ul class="gestion-profil">
+			<li class="item-nav">
+	          <a class="link-nav" href="mon-profil?id=<?=$_SESSION['user']['id_user'] ?>">
+				<img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" >
+				
+				<span> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </span> 
+			  </a>
 	        </li>	
-			
+			</ul>				
+			</div>
 			<?php	
 			}
 			?>
 
-	    </div>
-	  </div>
+			<!-- 3ER BOITE bis-->
+
+			<!-- incription / connection -->
+			<div class="guest">
+			<?php
+			if (!$connected=='false') {
+			?>
+	        <li class="item-nav">
+	          <a class="link-nav" href="inscription">Inscription</a> 
+	        </li>
+			<li class="item-nav">
+	          <a class="link-nav" href="connection">Connection</a>
+	        </li>
+			</div>
+			<?php	
+			}
+			?>
+
+
 	</nav>
 	</header>

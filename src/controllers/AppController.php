@@ -6,7 +6,6 @@ class AppController extends Db
     public static function index()
     {
         //page d'accueil a modifier front
-        echo "Je suis dans appController Je dois faire du back ici <br>";
        
         
         include VIEWS . "app/home.php";

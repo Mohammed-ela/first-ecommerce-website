@@ -1,0 +1,75 @@
+/*------------------------------------------------------- Font ------------------------------------------------------------------ */ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,200&display=swap');
+
+:root{
+    --main-bg-color: #004870;
+    --secondary-bg-color: #007092;
+    --bleu-fonce:#003545;
+    --bleu-clair: #E2F4FF;
+    --palette-rouge:#E60000;
+    --palette-orange:#FAAE16;
+}
+
+/* body{
+    background-color: red;
+} */
+/*------------------------------------------------------- BACK OFFICE ------------------------------------------------------------------ */ 
+#picture-profil {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#picture-admin{
+    width: 70px;
+    height: 70px;
+}
+
+#picture-categorie{
+    width: 100px;
+    height: 100px;
+}
+/*------------------------------------------------------- HEADER ------------------------------------------------------------------ */ 
+
+#logo{
+width: 70px;
+height: 64px;
+object-fit: cover;
+}
+
+
+.navbar{
+width: 100%;
+height: 100px;
+background-color: var(--main-bg-color);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.list-nav{
+    display: flex;
+}
+
+.item-nav{
+    display: flex;
+    list-style: none;
+}
+
+.link-nav{
+   list-style-type: none;
+   
+}
+
+#gestion-profil{
+    display: flex;
+    width: 160px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.flex-mid{
+    
+}
+
