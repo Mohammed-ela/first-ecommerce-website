@@ -86,6 +86,15 @@ class ProduitController
 
 		include VIEWS . "produit/produit.php";
     }
+
+	public static function fetchOneProduct(){
+
+		$produit = new Produit();
+		
+     	$produit->Produit_info();
+
+		include VIEWS . "produit/produit_info.php";
+	}
 		
 	
 }

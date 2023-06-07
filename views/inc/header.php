@@ -21,7 +21,7 @@ $admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
     <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="../style.css">
   </head>
-  <body>
+<header>
 <nav class="navbar navbar-expand-lg navbar-dark p-3 " style="background-color:#1C2331;" id="headerNav">
 	  <div class="container-fluid">
 	 
@@ -112,3 +112,4 @@ $admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
 	    </div>
 	  </div>
 	</nav>
+	</header>
