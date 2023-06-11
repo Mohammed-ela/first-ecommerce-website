@@ -3,28 +3,18 @@ $title = "Catalogue";
 include VIEWS.'inc/header.php';
 $allcategorie=Categorie::showDb();
 ?>
-
-        <main>
-          <h1 class="text-center p-5">Catalogue</h1>  
-          <div class="container">    
-            <div class="row fluid">   
-          <?php
-for ($i=0; $i < count($allcategorie) ; $i++) {          
-?>
+          <h1 class="">Catalogue</h1>  
+        <main class="categorie">
+  
 
 
 
-    <div class="col text-center flex-column justify-content-center">
-       <a href="Produit?id=<?=$allcategorie[$i]["id_categorie"]?>"><img src="<?= TELECHARGEMENT. "categorie/". $allcategorie[$i]["picture"] ?>" class="img-fluid" alt="categorie de montre"></a>
-        <h2 class="text-center"><?=$allcategorie[$i]["name"]?></h2>
+<?php for ($i=0; $i < count($allcategorie) ; $i++) { ?>    
+
+    <div class="element-cat">
+       <a href="Produit?id=<?=$allcategorie[$i]["id_categorie"]?>"><img src="<?= TELECHARGEMENT. "categorie/". $allcategorie[$i]["picture"] ?>" alt="categorie de montre"></a>
+       <h2><?=$allcategorie[$i]["name"]?></h2>
     </div>
-
-
-
-
-
-
-
 
 <?php
 }

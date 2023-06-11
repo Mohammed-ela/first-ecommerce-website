@@ -184,6 +184,7 @@ class AppController extends Db
 		if ($queryPreparee->rowCount() == 1)
 		{
             $_SESSION['user']= $Users_connecte;
+            
             header("Location:" . BASE_PATH . "");
             $_SESSION["message"] = "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
             Bonjour " .$_SESSION['user']['prenom']." ! </div>";

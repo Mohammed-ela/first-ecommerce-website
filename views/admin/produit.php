@@ -18,7 +18,7 @@ if (!App::isadmin()) {
 
 			$_SESSION["message"] = "";
 	?>
-                  <table class="table table-striped container-sm">
+                  <table class="table table-striped container-xxl">
 
 <thead>
       <tr>

@@ -18,9 +18,10 @@ if (!App::isadmin()) {
 
 			$_SESSION["message"] = "";
 	?>
-                  <table class="table table-striped container">
+<div class="table-responsive-md">
+                  <table class="table table-striped container-sm">
 
-<thead>
+<thead class="thead-dark">
       <tr>
 
             <th scope="col">id_user</th>
@@ -37,6 +38,7 @@ if (!App::isadmin()) {
 
       </tr>
 </thead>
+
 <tbody class="table-striped">
 <?php       
 
@@ -50,7 +52,7 @@ if (!App::isadmin()) {
                     <td><?=$user["id_user"]?></td>
                     <td><?=$user["nom"]?></td>
                     <td><?=$user["prenom"]?></td>
-                    <td><img src="<?= TELECHARGEMENT. "user/". $user["pp"] ?>" id="profil picture"></td>
+                    <td><img src="<?= TELECHARGEMENT. "user/". $user["pp"] ?>" id="picture-admin"></td>
                     <td><?=$user["pseudo"]?></td>
                     <td><?=$user["password"]?></td>
                     <td><?=$user["adresse"]?></td>
@@ -78,5 +80,6 @@ if (!App::isadmin()) {
     </tbody>
 </table>
 
+            </div>
 
 <?php  include VIEWS.'inc/footer.php';?>

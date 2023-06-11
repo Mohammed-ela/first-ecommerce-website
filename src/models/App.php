@@ -35,6 +35,18 @@ class App
 		
 	}
 
+			// Fonction pour calculer le total du panier
+	public static function calculerTotalPanier($panier)
+	{
+		$total = 0;
 
+		foreach ($panier as $quantite) {
+			$total += $quantite;
+		}
+
+		return $total;
+	}
+
+	
 	
 }
