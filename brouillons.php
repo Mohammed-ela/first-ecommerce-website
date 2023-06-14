@@ -62,4 +62,50 @@ if (!($compteur%4)) {
                         ?>
         </main>
 </body>
-<?php  include VIEWS.'inc/footer.php'; ?>
+<?php  include VIEWS.'inc/footer.php';
+
+
+public static function login()
+{
+
+    $requete = "SELECT `password` FROM `user` WHERE `email` = ?";
+
+    $requetePreparees = self::getDb()->prepare($requete);
+
+    $rep = $requetePreparees->execute([
+        $_POST["monemail"]
+    ]);
+
+    if ($rep) {
+        $mdp_hash = $requetePreparees->fetch(PDO::FETCH_ASSOC);
+    }
+
+    $Password_bypost = $_POST['monmdp'];
+
+    if (password_verify($Password_bypost, $mdp_hash['password'])) {
+        $query = "SELECT `id_user`, `nom`, `prenom`, `pp`, `pseudo`, `email`, `password`, `adresse`, `numero`, `date_de_creation`, `statut` FROM `user`  WHERE `email` = ? AND `password` = ?";
+        $queryPreparee = self::getDb()->prepare($query);
+        $reponse = $queryPreparee->execute([
+            $_POST["monemail"],
+            $mdp_hash['password']
+        ]);
+
+    }
+    // si authentification reussi
+		if ($queryPreparee->rowCount() == 1)
+		{
+            $_SESSION['user']= $Users_connecte;
+            
+            header("Location:" . BASE_PATH . "");
+            $_SESSION["message"] = "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
+            Bonjour " .$_SESSION['user']['prenom']." ! </div>";
+
+		}else {
+        header("Location:" . BASE_PATH . "connection");
+            $_SESSION["message"] = "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+            Votre nom de compte ou votre mot de passe est incorrect.
+      </div>";
+    }
+}
+
+?>

@@ -134,18 +134,6 @@ class User extends Db
 		
 	}
 
-	if (isset($_FILES["pp"])) // Si FILES existe pour la "pp"
-	{
-
-		
-		
-	}
-
-		
-	
-
-		
-
 }
 
 	public static function showDb()
@@ -172,7 +160,6 @@ class User extends Db
 		}
 
 		return $allUsers;
-
 	}
 	
 	public static function remove(){
@@ -229,6 +216,7 @@ class User extends Db
 
 	}
 	public static function my_profil_register(){
+
 	$query = "UPDATE `user` SET `nom`=?,`prenom`=?,`pp`=?,`pseudo`=?,`email`=?,`adresse`=?,`numero`=? WHERE `id_user` = ?";
 
 		$requetePreparee = self::getDb()->prepare($query);
@@ -246,6 +234,7 @@ class User extends Db
 		]);
 
 		if ($reponse) {
+			//mise a jour de la session
 			$_SESSION['user']['nom']=$_POST['nom'];
 			$_SESSION['user']['prenom']=$_POST['prenom'];
 			$_SESSION['user']['pp']=$_POST['pp'];
@@ -254,10 +243,9 @@ class User extends Db
 			$_SESSION['user']['adresse']=$_POST['adresse'];
 			$_SESSION['user']['numero']=$_POST['numero'];
 
-			
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-				 Bravo ".$_SESSION['user']['prenom']."Vous avez bien modifier votre profil !
-			</div>";
+			Bravo Vous avez bien modifier votre profil !
+            </div>";
 			header("Location:" . BASE_PATH . "mon-profil");
 		}else {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
@@ -268,25 +256,6 @@ class User extends Db
 		}
 
 	}
-	// public static function select_user(){
-
-	// 	$query = "SELECT `email`, `password` FROM `user` WHERE `id_user` = ?";
-
-	// 	$requetePreparee = self::getDb()->prepare($query);
-
-	// 	$reponse = $requetePreparee->execute([
-
-	// 	$_GET["id"]
-
-	// 	]);
-
-	// 	$userFromBdd = $requetePreparee->fetch(PDO::FETCH_ASSOC);
-	// 	return $userFromBdd;
-	// }
-	
-	
-
-
 
 	/**
 	 * Get the value of id_user

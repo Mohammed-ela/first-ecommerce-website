@@ -9,10 +9,8 @@ header("Location:" . BASE_PATH . "");
 
 
 			<h1 class="text-center my-5"> Bienvenue dans la gestion de votre profil <?= $_SESSION['user']['pseudo'] ?></h1>
+	<?= !empty($_SESSION["message"]) ? $_SESSION["message"] : ""; ?>
             <h2 class="text-center mb-5 ">Vous êtes membre depuis le  <?= date("d-m-Y",strtotime($_SESSION['user']['date_de_creation'])) ?> </h2>
-
-
-
 <form method="post" action="my_profil_register?id=<?=$_SESSION['user']['id_user']?>" class="w-50 mx-auto">
 	
 	<div class="row g-3">

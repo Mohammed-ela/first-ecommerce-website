@@ -21,7 +21,7 @@
         <ul class="Contact">
             <li id="title">Nous contacter</li>
             <li><a href="#">Ecrivez-nous</a></li>
-            <li><a href="mailto:elamrani.mohammed95@gmail.com?subject=Site Web Synkro : "></a></li>
+            <li><a href="mailto:elamrani.mohammed95@gmail.com?subject=Site Web Synkro : ">elamrani.mohammed95@gmail.com</a></li>
             <li>01 78 46 34 78</li>
         </ul>
         <ul class="Plan">
@@ -31,6 +31,7 @@
             <li><a href="#">Avis</a></li>
         </ul>
     </div>
+    
     <div class="footer-bottom">
         
         <ul>

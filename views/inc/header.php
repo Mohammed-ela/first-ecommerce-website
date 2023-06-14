@@ -6,8 +6,12 @@ $admin=null;
 if ($connected=='false') { // si je suis connecté
 $admin=App::isadmin();	 // j'enregistre ma fonction isadmin() dans une variable
 }
+$quantity='0';
+if (isset($_SESSION['panier'])) {
 $panier = $_SESSION['panier'];
 $quantity = App::calculerTotalPanier($panier);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -86,7 +90,7 @@ $quantity = App::calculerTotalPanier($panier);
 			<li class="item-nav">
 			<a href="list_panier">
 			<iconify-icon icon="iconoir:cart" style="color: white;" width="24" height="24"></iconify-icon>
-			<span id="panier-badge"><?=$quantity?></span>
+			<span id="panier-badge"><?= $quantity?></span>
 			</a>
 			</li>
 
@@ -136,3 +140,10 @@ $quantity = App::calculerTotalPanier($panier);
 
 	</nav>
 	</header>
+<?php
+//session message
+	if (!empty($_SESSION["message"])) {
+        echo($_SESSION["message"]);
+        unset($_SESSION["message"]);
+    }
+	?>

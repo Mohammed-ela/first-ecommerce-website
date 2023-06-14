@@ -92,4 +92,5 @@ class UserController
 		include VIEWS . "user/my_profil.php";
 	}
 	
+	
 }

@@ -364,6 +364,7 @@ color: var(--blanc);
   }
 input:focus::placeholder {
     color: transparent;
+    
     padding: 10px;
 }
 
