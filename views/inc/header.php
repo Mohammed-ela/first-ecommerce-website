@@ -20,8 +20,8 @@ $quantity = App::calculerTotalPanier($panier);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?=$title?></title>
-	<meta name="keyword" content="Projet E-commerce , Projet fin d'année , montre connecte , smartwatch , Marketplace ">
-    <meta name="description" content="Synkro est un site E-commerce proposant une panoplie de montre à vendre ! ">
+	<meta name="keyword" content="Projet E-commerce, Projet fin d'année, montre connecte, smartwatch, Marketplace, E-commerce, BDD. ">
+    <meta name="description" content="Synkro est un site E-commerce proposant une panoplie de montre dedstinés au sportif à vendre ! ">
 	<!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<!-- Tailwin -->

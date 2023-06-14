@@ -8,25 +8,31 @@
 
 ### Description
 
-- Ce projet est un afficheur de films basé sur l'API TMDB (The Movie Database). Il récupère les films à venir depuis l'API et les affiche dans une interface utilisateur conviviale.
+- Ce projet est un site d’E-commerce orienté autour de la vente de montre connecté destinée au sportif.
 
-- [Lien du site]<https://mohammed-tmbd.netlify.app/>
+- [Lien du site]<>
 
 
 ### Fonctionnalités
 
-    1- Récupération des données de films à venir à partir de l'API TMDB.
-    2- Affichage des films avec leurs titres, descriptions et affiches.
-    3- Utilisation de la bibliothèque ColorThief pour extraire les couleurs dominantes des affiches de films et les applique aux éléments de l'interface.
+    1- Récupération des données de nos categorie/article à venir à partir de notre Base de données mySQL.
+    2- Mise en place d'un login avec 3 types d'utilisateurs : guest / user / admin.
+    3- Affichage des produits avec leurs titres, descriptions en fonction de la catégorie selectionnéees.
+    4- Gestion du panier / commandes.
 
 ### Technologies
 
     - HTML5
-    - CSS3
-    - JavaScript
-    - Bootstrap
-    - Iconify / fontawesome
+    - CSS3 / SASS
+    - PHP/mySQL + CRUD
+    - BDD
+    - Architecture MVC
+    - JavaScript 
+    - Bootstrap (admin)
+    - Librairie Iconify / fontawesome
+    - Python
+    - Librairie Flask
 
 ### Contact
 
-- Si vous avez des questions ou des suggestions, n'hésitez pas à me contacter à [elamrani.mohammed95@gmail.com].
+- Si vous avez des questions ou des suggestions, n'hésitez pas à me contacter à cette adresse [elamrani.mohammed95@gmail.com].
