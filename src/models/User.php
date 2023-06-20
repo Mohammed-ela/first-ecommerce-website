@@ -260,7 +260,8 @@ class User extends Db
 
 	public static function commandes(){
 
-		
+
+
 		$query = "SELECT * FROM `achat` WHERE `user_id`=?";
 
 		$requetePreparee = self::getDb()->prepare($query);
@@ -286,6 +287,7 @@ class User extends Db
 		}
 
 		return $commande;
+
 	}
 	/**
 	 * Get the value of id_user

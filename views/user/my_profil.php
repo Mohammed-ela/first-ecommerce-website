@@ -4,8 +4,9 @@ include VIEWS.'inc/header.php';
 if (!App::isconnect()) {
 header("Location:" . BASE_PATH . "");
 }
-
+if (!empty($_GET['id'])) {
 $achats = User::commandes();
+}
 $allmontre = Panier::show_panier();
 
 
@@ -64,6 +65,8 @@ $allmontre = Panier::show_panier();
 <section class="commandes">
 
 <?php 
+		if (!empty($_GET['id'])) {
+
 $divs = [];
 $currentDate = null;
 $currentHour = null;
@@ -118,7 +121,7 @@ if ($currentHour != null) {
 foreach ($divs as $div) {
     echo $div;
 }
-
+}
 ?>
 
 	

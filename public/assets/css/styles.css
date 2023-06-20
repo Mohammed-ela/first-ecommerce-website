@@ -4,11 +4,12 @@
 :root{
     --main-bg-color: #004870;
     --secondary-bg-color: #007092;
-    --bleu-fonce:#003545;
+    --bleu-fonce:#003775;
     --bleu-clair: #E2F4FF;
     --palette-rouge:#E60000;
     --palette-orange:#FAAE16;
     --gris-clair:#E7E7E7;
+    --palette-grey:#9facbd;
     --blanc:#fff;
     --noir:#000;
     --font-primary:'poppins';
@@ -19,6 +20,9 @@
     list-style-type: none;
 }
 
+input{
+    border: none;
+}
 /*------------------------------------------------------- BACK OFFICE ------------------------------------------------------------------ */ 
 #picture-profil {
     width: 50px;
@@ -184,6 +188,18 @@ padding: 11px 10px;
     border-radius: 20px;
     border: #007092 solid 1px;
     padding: 35px;
+}
+
+.element-prd:hover{
+
+        box-shadow: var(--bleu-clair) 0px 13px 47px -5px, var(--bleu-fonce) 0px 8px 16px -8px;
+
+}
+.element-prd img:hover{
+
+transform: scale(1.1);
+
+   
 }
 .bouton-cart {
     position: absolute;
@@ -384,10 +400,82 @@ color: var(--main-bg-color);
     text-align: center;
     font-family: var(--font-primary);
     margin-top: 110px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+}
+.formulaire-de-connection{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 70px 250px 40px 250px;
+    margin: 0 auto;
+    background-color: var(--bleu-clair);
+    width:60%;
+    border-radius: 20px;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94,104,121,0.288);
+
+}
+.form-sidentifier{
+    padding-top : 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    padding: 0 220px;
 }
 
+.input-sidentifier{
+    height: 71px;
+    width: 737px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: var(--font-primary);
+    padding-left: 10px;
 
+}
+
+.input-sidentifier:focus{
+    border: var(--main-bg-color);
+    caret-color: var(--bleu-fonce);
+    transform: scale(1.2);
+}
+
+.input-sidentifier:hover{
+border: var(--bleu-fonce) 2px solid;
+}
+
+.input-sidentifier::placeholder{
+    font-size: 18px;
+    font-weight: 200;
+    font-family: var(--font-primary);
+    color: var(--main-bg-color);
+    padding-left: 10px;
+    text-align: center;
+}
+.submit-connect{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn-sidentifier{
+    height: 55px;
+    width: 260px;
+    border-radius: 20px;
+    padding: 0px 25px 0px 25px;
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    cursor: pointer;
+}
+
+.btn-sidentifier:hover{
+    background-color: var(--blanc);
+    color: var(--bleu-fonce);
+    border: var(--bleu-fonce) 2px solid;
+}
 
 
 

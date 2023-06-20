@@ -42,7 +42,7 @@ class App extends db
 	{
 		session_destroy();
 		// unset($_SESSION['user']); // supprimer la session
-		header("Location:" . BASE_PATH . ""); // redirection page d'accueil
+		header("Location:" . BASE_PATH . "connection"); // redirection page d'accueil
 
 	}
 
