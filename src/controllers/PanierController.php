@@ -56,28 +56,47 @@ class PanierController
                 // Supprimer le produit du panier
                 unset($_SESSION['panier'][$idProduit]);
     
-                // Rediriger l'utilisateur vers la page du panier mise à jour
-                $_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+
+                $_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
                 Le produit selectionné a bien etait supprimé du panier !
             </div>";
                 header("Location: " . BASE_PATH . "list_panier");
-                exit; // Terminer le script
+                exit;
             } else {
-                // Le produit n'existe pas dans le panier, vous pouvez afficher un message d'erreur ou rediriger l'utilisateur vers la page du panier
+                
                 $_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
                     Le produit n'existe pas dans le panier.
                 </div>";
                 header("Location: " . BASE_PATH . "list_panier");
-                exit; // Terminer le script
+                exit; 
             }
         } else {
-            // L'ID du produit à supprimer n'est pas spécifié, vous pouvez afficher un message d'erreur ou rediriger l'utilisateur vers la page du panier
+            
             $_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
                 L'ID du produit à supprimer n'est pas spécifié.
             </div>";
             header("Location: " . BASE_PATH . "list_panier");
-            exit; // Terminer le script
+            exit; 
         }
+    }
+    
+    public static function vider_panier(){
+if (!empty($_SESSION['panier'])) {
+
+    unset($_SESSION['panier']);
+    $_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
+            Votre panier est désormais vide !
+        </div>";
+        header("Location: " . BASE_PATH . "list_panier");
+        exit; 
+}else {
+    $_SESSION["message"] = "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+            Votre panier est déjà vide !
+        </div>";
+        header("Location: " . BASE_PATH . "list_panier");
+        exit; 
+}
+       
     }
     
 }

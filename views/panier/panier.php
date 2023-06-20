@@ -100,6 +100,11 @@ $allmontre = Panier::show_panier();
   <button type="submit" class="btn btn-danger">Payer</button>
 </form>
 </td>
+<td><form method="POST" action="viderpanier">
+  <input type="hidden">
+  <button type="submit" class="btn btn-danger">Vider Panier</button>
+</form>
+</td>
                           
                 </tbody>
                 

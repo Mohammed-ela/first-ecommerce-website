@@ -31,8 +31,12 @@ $quantity = App::calculerTotalPanier($panier);
 	<!-- iconify -->
 	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 	<!-- Javascript -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>	
+
 	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 	<script src="<?= ASSETS. "js/main.js"?>" defer></script>
+	<script src="<?= ASSETS. "js/swiper.js"?>" defer></script>
 
   </head>
 <header>
@@ -41,7 +45,7 @@ $quantity = App::calculerTotalPanier($panier);
 
 			<!-- 1ER BOITE -->
 		  <div class="logo">
-			<img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro" >
+			<a href="&emsp;"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
 		  </div>
 
 			<!-- 2EME BOITE -->

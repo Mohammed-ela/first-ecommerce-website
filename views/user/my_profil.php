@@ -5,6 +5,10 @@ if (!App::isconnect()) {
 header("Location:" . BASE_PATH . "");
 }
 
+$achats = User::commandes();
+$allmontre = Panier::show_panier();
+
+
 ?>
 
 
@@ -28,7 +32,7 @@ header("Location:" . BASE_PATH . "");
 		<div class="form-group mb-2">
 
 		<label for="profil-picture" class="form-label">Modifier votre ancienne photo de profil :&nbsp;</label><span name=picture-profil><?=!empty($_SESSION['user']['pp']) ? $_SESSION['user']['pp'] : "";?></span><br>
-		<input type="file" name="pp" id="photo" value="" > 
+		<input type="file" name="pp" id="photo" value="<?=!empty($_SESSION['user']['pp']) ? $_SESSION['user']['pp'] : "";?>" > 
 			
         </div>
 	</div>
@@ -55,6 +59,71 @@ header("Location:" . BASE_PATH . "");
 
 	<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
 </form>
-<?php  
+
+
+<section class="commandes">
+
+<?php 
+$divs = [];
+$currentDate = null;
+$currentHour = null;
+foreach ($achats as $achat) {
+    $date = date('Y-m-d', strtotime($achat['date_achat']));
+    $heure = date('H:i:s', strtotime($achat['date_achat']));
+    
+    if ($date != $currentDate) {
+        // Nouvelle date, créez une nouvelle div avec un titre
+        $divs[] = "<h1 class='text-center fs-1'>Mes commandes</h1>\n";
+        $divs[] = "<h2>Vos commandes passées le $date</h2>\n";
+        $currentDate = $date;
+        $currentHour = null; // Réinitialise l'heure pour la nouvelle date
+    }
+
+    if ($heure != $currentHour) {
+        // Nouvelle heure, fermez la div précédente et créez un sous-titre avec l'heure
+        if ($currentHour != null) {
+            $divs[] = "</div>\n";
+        }
+        $divs[] = "<div class='commande no'>\n";
+        $divs[] = "<div>\n\t<h3>Vos commandes passées à $heure</h3>\n</div>\n";
+        $currentHour = $heure;
+    }
+
+    $divs[] = "<ul class='list-commande'>\n";
+
+    foreach ($allmontre as $montre) {
+        if ($montre['id_montre'] == $achat['montre_id']) {
+            $titre = $montre['titre'];
+            $couleur = $montre['couleur'];
+            $image = $montre['photo'];
+            $prix = $montre['prix'];
+            break;
+        }
+    }
+
+    $divs[] = "\t<li>Produit: $titre</li>\n";
+    $divs[] = "\t<li>Quantité: {$achat['quantite']}</li>\n";
+    $divs[] = "\t<li>Couleur: {$couleur}</li>\n";
+    $divs[] = "\t<li>Prix: {$prix}</li>\n";
+
+    $divs[] = "</ul>\n";
+}
+
+// Fermer la dernière div avec la classe "commande no"
+if ($currentHour != null) {
+    $divs[] = "</div>\n";
+}
+
+// Affichez les divs résultantes
+foreach ($divs as $div) {
+    echo $div;
+}
+
+?>
+
+	
+</section>
+<?php 
+// app::showArray($achats);
 include VIEWS.'inc/footer.php'; 
 ?>

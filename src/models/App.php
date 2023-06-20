@@ -80,6 +80,7 @@ public static function paiement(){
 			unset($_SESSION["message"]);
 			$_SESSION["message"] = "Il y a eu une erreur lors de l'ajout en bdd<br>";
 		}
+		unset($_SESSION['panier']);
 		unset($_SESSION["message"]);
 		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
                 Votre Paiement de " .$_POST['prx']. " € à bien été effectué ! consultez vos commande pour avoir le détail de votre commande.

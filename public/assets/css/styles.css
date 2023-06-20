@@ -253,33 +253,139 @@ justify-content: center;
     margin-top: 60px;
 }
 
+/*------------------------------------------------------------------- Index.php -----------------------------------------------------------*/
+
+.first-carousel{
+    position: relative;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+    background-color: red;
+}
+
+#arrows-left{
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 0 40px;
+    z-index: 1;
+    color: var(--noir);
+}
+#arrows-right{
+    position: absolute;
+    top: 50%;
+    right:40px;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+    color: var(--noir);
+}
+
+#carousel-section  .icon-hover-color{
+color: var(--main-bg-color);
+}
+
+.carousel-pagination{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.custom-button {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: none;
+    background-color: #007092;
+    margin-top: 23px;
+    margin-bottom: 60px;
+}
+
+#carousel-pagination .custom-button.active {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid var(--noir);
+    background-color: #004870;
+    margin-top: 23px;
+}
+
+.presentation{
+    font-family: var(--font-primary);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.intro{
+    padding: 0 120px;
+}
+
+.produit-populaire{
+    position: relative;
+    padding: 0 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    color: var(--secondary-bg-color);
+    font-weight: 600;
+    font-family: var(--font-primary);
+
+}
+
+.title a{
+    color: var(--secondary-bg-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.nos-produits-populaire{
+    display: grid;
+    grid-template-columns: 264px 264px 264px 264px;
+    justify-content: space-between;
+    margin-bottom: 100px;
+
+}
+
+.prix-promo{
+    text-decoration: line-through;
+    color: #B0B0B0 !important;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+}
 
 
 
 
+/*------------------------------------------------- Form S'identifier ------------------------------------------------------------------ */ 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.title-h1-sidentifier{
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    font-family: var(--font-primary);
+    margin-top: 110px;
+    margin-bottom: 100px;
+}
 
 
 
@@ -364,12 +470,12 @@ color: var(--blanc);
   }
 input:focus::placeholder {
     color: transparent;
-    
+    border: none;
     padding: 10px;
 }
 
 input:focus{
-    caret-color: transparent;
+    caret-color: white;
     padding-left: 8px; /* Ajoutez le padding souhaité */
 }
   

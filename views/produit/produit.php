@@ -86,10 +86,14 @@ for ($i=0; $i < count($allProduct) ; $i++) {
                 <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod[$x]['id_montre']?>&cat=<?=$tabprod[$x]['categorie_id']?>';">
                     <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                 </button>
+                
         </div>
         <?php    
+                 }
+                if (!empty($_SESSION['panier'])) {
+                    var_dump($_SESSION['panier']);
                 }
-                var_dump($_SESSION['panier']);
+               
                 
         ?>
        </div>

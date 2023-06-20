@@ -18,13 +18,13 @@
     1- Récupération des données de nos categorie/article à venir à partir de notre Base de données mySQL.
     2- Mise en place d'un login avec 3 types d'utilisateurs : guest / user / admin.
     3- Affichage des produits avec leurs titres, descriptions en fonction de la catégorie selectionnéees.
-    4- Gestion du panier / commandes.
+    4- Gestion du panier / Commandes.
 
 ### Technologies
 
     - HTML5
     - CSS3 / SASS
-    - PHP/mySQL + CRUD
+    - PHP 8 /mySQL + CRUD
     - BDD
     - Architecture MVC
     - JavaScript 
@@ -32,6 +32,7 @@
     - Librairie Iconify / fontawesome
     - Python
     - Librairie Flask
+    - Responsivité
 
 ### Contact
 

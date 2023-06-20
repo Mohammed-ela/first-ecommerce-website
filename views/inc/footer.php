@@ -5,7 +5,7 @@
             <h2 id="title-newsletter">Notre newsletter</h2>
             <form class="form-newsletter">
                 <input id="newsletter-input" type="email" placeholder="Saisir votre adresse email" name="newsletter">
-                <a href="#"><iconify-icon id="icn-send" icon="iconamoon:send-light" width="24" height="24" rotate="315deg"></iconify-icon></a>
+                <a href="newsletter"><iconify-icon id="icn-send" icon="iconamoon:send-light" width="24" height="24" rotate="315deg"></iconify-icon></a>
             </form>         
         </div>
        

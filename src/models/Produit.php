@@ -132,7 +132,7 @@ class Produit extends Db
 	public static function showDb()
 	{	
 		$query = "SELECT * FROM montre  LIMIT 100";
-
+		
 		$requetePreparee = self::getDb()->prepare($query);
 
 		$reponse = $requetePreparee->execute();
