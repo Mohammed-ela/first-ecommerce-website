@@ -18,6 +18,26 @@ $i='0';
             //     } 
 
         // var_dump($Product_selected);
+        // Récupération des données nécessaires
+	 $breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
+
+	 // Début du fil d'Ariane
+	 echo '<ul class="breadcrumb">';
+
+	 // Parcours des éléments du fil d'Ariane
+	 foreach ($breadcrumb as $title => $url) {
+		 // Lien actif (dernier élément du fil d'Ariane)
+		 if ($url == '#') {
+			 echo '<li class="active">' . $title . '</li>';
+		 }
+		 // Liens normaux
+		 else {
+			 echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+		 }
+	 }
+
+	 // Fin du fil d'Ariane
+	 echo '</ul>';
 ?>
 <body>
 <main>  

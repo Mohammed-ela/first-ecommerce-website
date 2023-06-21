@@ -107,6 +107,33 @@ public static function commande() {
 
 
 }
+public static function getBreadcrumbData($currentUrl)
+    {
+       // Tableau multidimensionnel contenant les informations des pages
 
+	   $pages = array(
+		'Accueil' => '&nbsp;',
+		'Catégorie' => 'Categorie'
+	);
+	if (isset($_GET['cat'])) {
+		$pages['Produits'] = 'Produit?id='.$_GET['cat'];
+	}
 	
+
+	// Vérification de correspondance et construction du fil d'Ariane
+	$breadcrumb = array();
+	foreach ($pages as $title => $url) {
+		if ($url == $currentUrl) {
+			$breadcrumb[$title] = '#';
+			break;
+		} else {
+			$breadcrumb[$title] = $url;
+		}
+	}
+
+	return $breadcrumb;
 }
+
+
+}
+	

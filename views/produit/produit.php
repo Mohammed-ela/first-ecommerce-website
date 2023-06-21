@@ -18,6 +18,27 @@ $allProduct=Produit::showDb();
 			header("Location:" . BASE_PATH . " ");
 			exit;
                 } 
+
+// Récupération des données nécessaires
+$breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
+unset($breadcrumb['Produits']);
+// Début du fil d'Ariane
+echo '<ul class="breadcrumb">';
+
+// Parcours des éléments du fil d'Ariane
+foreach ($breadcrumb as $title => $url) {
+    // Lien actif (dernier élément du fil d'Ariane)
+    if ($url == '#') {
+        echo '<li class="active">' . $title . '</li>';
+    }
+    // Liens normaux
+    else {
+        echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+    }
+}
+
+// Fin du fil d'Ariane
+echo '</ul>';
 ?>
 <body>
         <h1 class="title-h1"><?= $h1 ?></h1>
@@ -35,8 +56,8 @@ for ($i=0; $i < count($allProduct) ; $i++) {
 
 
             <div class="element-prd">
-                <li class="img-box"><a href="Produit_info?id=<?=$tabprod[$x]["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod[$x]["photo"] ?>" alt="<?= $tabprod[$x]["titre"] ?>"></a></li>
-                <li><a href="Produit_info?id=<?=$tabprod[$x]["id_montre"]?>"> <?= $tabprod[$x]["titre"]?> </a> </li>
+                <li class="img-box"><a href="Produit_info?id=<?=$tabprod[$x]["id_montre"]?>&cat=<?=$tabprod[$x]["categorie_id"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod[$x]["photo"] ?>" alt="<?= $tabprod[$x]["titre"] ?>"></a></li>
+                <li><a href="Produit_info?id=<?=$tabprod[$x]["id_montre"]?>&cat=<?=$tabprod[$x]["categorie_id"]?>"> <?= $tabprod[$x]["titre"]?> </a> </li>
                 <li><p><?= $tabprod[$x]["prix"]." €"?></p></li>
 
                 <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod[$x]['id_montre']?>&cat=<?=$tabprod[$x]['categorie_id']?>';">

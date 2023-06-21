@@ -272,6 +272,7 @@ justify-content: center;
 /*------------------------------------------------------------------- Index.php -----------------------------------------------------------*/
 
 .first-carousel{
+    overflow: hidden;
     position: relative;
     align-items: center;
     height: 500px;

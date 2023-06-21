@@ -1,3 +1,9 @@
+<?php
+
+
+?>
+
+
 <footer class="footer">
     <div class="footer-top">
 

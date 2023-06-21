@@ -11,6 +11,7 @@ $imagePaths = array(TELECHARGEMENT . "produit/" . $allProduct[0]["photo"],TELECH
     <main>
         <!-- le carousel  -->
         <section class="first-carousel" id="carousel-section">
+            
             <div class="swiper-wrapper">
                 <?php foreach ($imagePaths as $imagePath) : ?>
                 <div class="swiper-slide">
@@ -21,6 +22,7 @@ $imagePaths = array(TELECHARGEMENT . "produit/" . $allProduct[0]["photo"],TELECH
                     <!-- les boutons de navigations right / left -->
                 <iconify-icon class="precedent" id="arrows-left" icon="iconamoon:arrow-left-6-circle-duotone"  width="34" height="58" onmouseover="this.classList.add('icon-hover-color')" onmouseout="this.classList.remove('icon-hover-color')"></iconify-icon>
                 <iconify-icon class="suivant" id="arrows-right" icon="iconamoon:arrow-right-6-circle-duotone"  width="34" height="58" onmouseover="this.classList.add('icon-hover-color')" onmouseout="this.classList.remove('icon-hover-color')"></iconify-icon>
+
         </section>
 
 
@@ -129,6 +131,7 @@ if ($cpt == 4) {
 </body>
 
 <?php  
+
 include VIEWS.'inc/footer.php'; 
 if (isset($_SESSION['user'])) {
     app::showArray($_SESSION['user']);

@@ -126,7 +126,7 @@ class AppController extends Db
         if ($reponse)
         {
             $_SESSION["message"] = "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
-                  Bravo votre produit qui porte comme nom : " . $name . " a bien été mis à jour !
+                  Bravo votre produit qui porte comme nom : " . $titre . " a bien été mis à jour !
             </div>";
             header("Location:" . BASE_PATH . "produit");
             exit;
@@ -198,6 +198,14 @@ class AppController extends Db
       </div>";
     }
 }
+
+
+
+    public static function actionPage()
+    {
+        $currentUrl = $_SERVER['REQUEST_URI'];
+    }
+
 
 
 }

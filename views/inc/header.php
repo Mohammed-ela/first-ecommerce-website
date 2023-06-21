@@ -149,5 +149,5 @@ $quantity = App::calculerTotalPanier($panier);
 	if (!empty($_SESSION["message"])) {
         echo($_SESSION["message"]);
         unset($_SESSION["message"]);
-    }
+    } 
 	?>
