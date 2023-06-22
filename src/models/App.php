@@ -1,6 +1,6 @@
 <?php
 
-class App extends db
+class App extends Db
 {
 	//fonction utile
 	public static function showArray(array $list) : void
