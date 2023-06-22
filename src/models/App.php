@@ -107,6 +107,19 @@ public static function commande() {
 
 
 }
+
+public static function where_im(){
+	// Stockage de l'URL actuelle
+$currentUrl = $_SERVER['REQUEST_URI'];
+
+// Suppression des paramètres de requête
+$baseUrl = strtok($currentUrl, '?');
+
+// Obtention de la partie "Produit_info" de l'URL
+$pageName = basename($baseUrl);
+
+echo $pageName;
+}
 public static function getBreadcrumbData($currentUrl)
     {
        // Tableau multidimensionnel contenant les informations des pages

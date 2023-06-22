@@ -60,7 +60,7 @@ for ($i=0; $i < count($allProduct) ; $i++) {
                 <li><a href="Produit_info?id=<?=$tabprod[$x]["id_montre"]?>&cat=<?=$tabprod[$x]["categorie_id"]?>"> <?= $tabprod[$x]["titre"]?> </a> </li>
                 <li><p><?= $tabprod[$x]["prix"]." €"?></p></li>
 
-                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod[$x]['id_montre']?>&cat=<?=$tabprod[$x]['categorie_id']?>';">
+                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod[$x]['id_montre']?>&cat=<?=$tabprod[$x]['categorie_id']?>&p=prd';">
                     <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                 </button>
             </div>

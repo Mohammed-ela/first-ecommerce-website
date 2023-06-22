@@ -50,11 +50,12 @@ $imagePaths = array(TELECHARGEMENT . "produit/" . $allProduct[0]["photo"],TELECH
             $cpt++;
         ?>
             <div class="element-prd">
-                <li class="img-box"><a href="Produit_info?id=<?=$tabprod["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod["photo"] ?>" alt="<?= $tabprod["titre"] ?>"></a></li>
-                <li><a href="Produit_info?id=<?=$tabprod["id_montre"]?>"> <?= $tabprod["titre"]?> </a> </li>
+                <li class="img-box"><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod["photo"] ?>" alt="<?= $tabprod["titre"] ?>"></a></li>
+                <li><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"> <?= $tabprod["titre"]?> </a> </li>
+                
                 <li><p><?= $tabprod["prix"]." €"?></p></li>
 
-                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod['id_montre']?>&cat=<?=$tabprod['categorie_id']?>';">
+                <button class="bouton-cart" onclick="window.location.href='<?=BASE_PATH.'panier?id='.$tabprod['id_montre']?>&cat=<?=$tabprod['categorie_id']?>&p=home';">
                     <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                 </button>
             </div>
@@ -83,11 +84,11 @@ if ($cpt == 4) {
             $cpt++;
         ?>
             <div class="element-prd">
-                <li class="img-box"><a href="Produit_info?id=<?=$tabprod["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod["photo"] ?>" alt="<?= $tabprod["titre"] ?>"></a></li>
-                <li><a href="Produit_info?id=<?=$tabprod["id_montre"]?>"> <?= $tabprod["titre"]?> </a> </li>
+                <li class="img-box"><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod["photo"] ?>" alt="<?= $tabprod["titre"] ?>"></a></li>
+                <li><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"> <?= $tabprod["titre"]?> </a> </li>
                 <li class="price"><p class="prix-promo"><?= $tabprod["prix"]." €"?></p> <p><?= $tabprod["prix"]-0.3* $tabprod["prix"]." €"?></p></li>
 
-                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod['id_montre']?>&cat=<?=$tabprod['categorie_id']?>';">
+                <button class="bouton-cart" onclick="window.location.href='<?=BASE_PATH.'panier?id='.$tabprod['id_montre']?>&cat=<?=$tabprod['categorie_id']?>&p=home';">
                     <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                 </button>
             </div>

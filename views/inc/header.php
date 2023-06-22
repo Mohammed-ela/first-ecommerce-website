@@ -92,7 +92,8 @@ $quantity = App::calculerTotalPanier($panier);
 
 		<ul id="panier">
 			<li class="item-nav">
-			<a href="list_panier">
+
+			<a href="<?=BASE_PATH. "list_panier" ?>">
 			<iconify-icon icon="iconoir:cart" style="color: white;" width="24" height="24"></iconify-icon>
 			<span id="panier-badge"><?= $quantity?></span>
 			</a>
@@ -104,11 +105,12 @@ $quantity = App::calculerTotalPanier($panier);
 		<ul id="user">
 
 			<li class="item-nav">
-<a class="link-nav" href="mon-profil?id=<?=$_SESSION['user']['id_user'] ?>"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
+			
+<a class="link-nav" href="<?=BASE_PATH. "mon-profil?id=".$_SESSION['user']['id_user']?>"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
 			</li>	
 
 			<li class="item-nav">
-				<a class="link-nav" href="mon-profil?id=<?=$_SESSION['user']['id_user'] ?>">
+				<a class="link-nav" href="<?=BASE_PATH. "mon-profil?id=".$_SESSION['user']['id_user']?>">
 					<span> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </span> 
 				</a>
 	        </li>		

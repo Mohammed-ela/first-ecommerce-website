@@ -8,8 +8,7 @@ class PanierController
     {
         // Récupérer l'ID du produit depuis $_GET['id']
         $idProduit = $_GET['id'];
-        
-        
+        $page = $_GET['p'];
         // Vérifier si le produit est déjà dans le panier
         if (isset($_SESSION['panier'][$idProduit])) {
             // Le produit existe déjà dans le panier, mettre à jour la quantité
@@ -19,10 +18,23 @@ class PanierController
             $_SESSION['panier'][$idProduit] = $quantite;
         }
         
-        // Rediriger l'utilisateur vers une autre page après l'ajout au $_SESSION['panier'];
+    if ($page=='prd') {
         header("Location: " . BASE_PATH . "Produit?id={$_GET['cat']}");
         exit();
+    }elseif ($page=='prd_info') {
+        header("Location: " . BASE_PATH . "Produit_info?id={$idProduit}&cat={$_GET['cat']}");
+        
+        exit();
+    }else{
+        header("Location: " .CONFIG['app']['projectBaseUrl']."public");
+        exit();
     }
+
+          
+    
+        
+        
+}
 
 
     public static function show_panier()
