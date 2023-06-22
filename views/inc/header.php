@@ -45,20 +45,20 @@ $quantity = App::calculerTotalPanier($panier);
 
 			<!-- 1ER BOITE -->
 		  <div class="logo">
-			<a href="&emsp;"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
+			<a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
 		  </div>
 
 			<!-- 2EME BOITE -->
 		<ul id="flex-mid">
 			<!-- -->
 	        <li class="item-nav">
-	          <a class="link-nav" aria-current="page" href="&emsp;">Accueil</a>
+	          <a class="link-nav" aria-current="page" href="<?=CONFIG['app']['projectBaseUrl']."public"?>">Accueil</a>
 	        </li>
 			<li class="item-nav">
-	          <a class="link-nav" href="Categorie">Catégories</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
+	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Catégories</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
 	        </li>
 			<li class="item-nav">
-	          <a class="link-nav" href="Categorie">Produits</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
+	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Produits</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
 			  <!-- ajout produit avec différent id -->
 	        </li>				
 		</ul>
@@ -69,13 +69,13 @@ $quantity = App::calculerTotalPanier($panier);
 			if ($admin=='false') {
 			?>
 	        <li>
-	          <a href="administration">ADMIN_Administration</a>
+	          <a href="<?=BASE_PATH. "administration" ?>">ADMIN_Administration</a>
 	        </li>
 	        <li>
-	          <a href="categorie">ADMIN_Categorie</a>
+	          <a href="<?=BASE_PATH. "categorie" ?>">ADMIN_Categorie</a>
 	        </li>
 	        <li>
-	          <a href="produit">ADMIN_Produit</a>
+	          <a href="<?=BASE_PATH. "produit" ?>">ADMIN_Produit</a>
 	        </li>
 			<?php	
 			}
@@ -113,7 +113,7 @@ $quantity = App::calculerTotalPanier($panier);
 				</a>
 	        </li>		
 			<li class="item-nav">  
-	          <a class="link-nav" href="deconnexion">Se deconnecter</a> 
+	          <a class="link-nav" href="<?=BASE_PATH. "deconnexion" ?>">Se deconnecter</a> 
 	        </li>	
 		</ul>
 </div>
@@ -131,10 +131,10 @@ $quantity = App::calculerTotalPanier($panier);
 			?>
 			<ul id="guest">
 				<li class="item-nav">
-				<iconify-icon icon="ph:user" width="24" height="24"></iconify-icon><a class="link-nav" href="connection">Se connecter</a>
+				<iconify-icon icon="ph:user" width="24" height="24"></iconify-icon><a class="link-nav" href="<?=BASE_PATH. "connection" ?>">Se connecter</a>
 				</li>
 				<li class="item-nav">
-					<a class="link-nav" href="inscription">S'enregistrer</a> 
+					<a class="link-nav" href="<?=BASE_PATH. "inscription" ?>">S'enregistrer</a> 
 				</li>
 			</ul>
 			<?php	

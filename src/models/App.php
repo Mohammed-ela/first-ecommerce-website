@@ -110,13 +110,17 @@ public static function commande() {
 public static function getBreadcrumbData($currentUrl)
     {
        // Tableau multidimensionnel contenant les informations des pages
-
+	   $accueil=CONFIG['app']['projectBaseUrl'];
+	   $root=BASE_PATH;
 	   $pages = array(
-		'Accueil' => '&nbsp;',
-		'Catégorie' => 'Categorie'
+		'Accueil' => $accueil."public",
+		'Catégorie' => $root.'Categorie'
 	);
+
+	//<?=CONFIG['app']['projectBaseUrl'].>
+
 	if (isset($_GET['cat'])) {
-		$pages['Produits'] = 'Produit?id='.$_GET['cat'];
+		$pages['Produits'] = $root.'Produit?id='.$_GET['cat'];
 	}
 	
 
