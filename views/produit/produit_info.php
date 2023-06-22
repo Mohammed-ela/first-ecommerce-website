@@ -28,12 +28,37 @@ $i='0';
                     <h1 class="text-center p-5"><?= $Product_selected[$i]['titre'] ?></h1> 
 
 
-                    <div class="">
-                        <img src="<?= TELECHARGEMENT. "produit/". $Product_selected[$i]['photo'] ?>" class= "img-fluid" alt="<?= $Product_selected[$i]["titre"] ?>">
-                        <p><?= $Product_selected[$i]["description"]?></p>
+                    <div class="fiche-produit">
+
+
+	 					<div class="img-price-name">
+						 <img src="<?= TELECHARGEMENT. "produit/". $Product_selected[$i]['photo'] ?>" class= "img-fluid" alt="<?= $Product_selected[$i]["titre"] ?>">
+						 <p class="text-center"><?=$Product_selected[$i]["titre"]." €"?></p>
+						 <p class="text-center"><?=$Product_selected[$i]["prix"]." €"?></p>
+						</div>
+
+						<div class="description-avis-quantité">
+
+							<div class="description">
+						 		<p><?= $Product_selected[$i]["description"]?></p>
+						 	</div>
+
+							 <div class="avis">
+								<p><?= $Product_selected[$i]["avis"]?></p>
+						 	</div>
+
+							<div class="quantity">
+						 		<p><?= $Product_selected[$i]["description"]?></p>
+						 	</div>
+
+						</div>
+
+
+
+                        
                         <p class="text-center">Couleur : <?= $Product_selected[$i]["couleur"]?></p>
                         <p class="text-center">Autonomie : <?= $Product_selected[$i]["autonomie"]?></p>
-                        <p class="text-center">Prix : <?=$Product_selected[$i]["prix"]." €"?></p>
+
                         <button class="" onclick="window.location.href='<?=BASE_PATH.'panier?id='.$Product_selected[$i]['id_montre']?>&cat=<?=$Product_selected[$i]['categorie_id']?>&p=prd_info';">
                           <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                         </button>
