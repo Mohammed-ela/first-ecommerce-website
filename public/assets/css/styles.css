@@ -19,7 +19,26 @@
     font-family: 'poppins';
     list-style-type: none;
 }
-
+.alert-success{
+    font-family: var(--font-primary);
+    font-size: 15px;
+    width: 100% !important;
+    margin: 0 !important;
+    height: 60px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alert-danger{
+    font-family: var(--font-primary);
+    font-size: 15px;
+    width: 100% !important;
+    margin: 0 !important;
+    height: 60px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 input{
     border: none;
 }
@@ -425,7 +444,7 @@ color: var(--main-bg-color);
 }
 
 .input-sidentifier{
-    height: 71px;
+    height: 50px;
     width: 737px;
     border-radius: 5px;
     font-size: 25px;
@@ -454,13 +473,12 @@ border: var(--bleu-fonce) 2px solid;
 }
 .submit-connect{
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-evenly;
 }
 
-.btn-sidentifier{
-    height: 55px;
-    width: 260px;
+.btn-first{
+    height: 40px;
+    width: 180px;
     border-radius: 20px;
     padding: 0px 25px 0px 25px;
     font-family: var(--font-primary);
@@ -472,17 +490,106 @@ border: var(--bleu-fonce) 2px solid;
     cursor: pointer;
 }
 
-.btn-sidentifier:hover{
+.btn-first:hover{
     background-color: var(--blanc);
     color: var(--bleu-fonce);
     border: var(--bleu-fonce) 2px solid;
 }
 
 
+/*------------------------------------------------- Form S'enregistrer ------------------------------------------------------------------ */ 
 
 .formulaire-inscription{
-    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 60px 0;
+    margin: 0 auto;
+    background-color: var(--bleu-clair);
+    width:55%;
+    border-radius: 20px;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94,104,121,0.288);
 }
+
+
+.form-senregistrer{
+    padding-top : 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 220px;
+}
+
+.input-senregistrer{
+    width: 300px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: var(--font-primary);
+}
+.input-senregistrer-long{
+    width: 500px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: var(--font-primary);
+}
+.input-senregistrer-long::placeholder{
+    text-align: center;
+}
+.input-senregistrer-long::placeholder , .input-senregistrer::placeholder{
+    font-size: 18px;
+    font-weight: 200;
+    font-family: var(--font-primary);
+    color: var(--main-bg-color);
+}
+.input-senregistrer-long:focus , .input-senregistrer:focus{
+    border: var(--main-bg-color);
+    caret-color: var(--bleu-fonce);
+    transform: scale(1.2);
+}
+.input-senregistrer-long:hover , .input-senregistrer:hover {
+    border: var(--bleu-fonce) 1px solid;
+        box-sizing: border-box;
+    }
+.nom-prenom{
+    display: flex;
+    gap: 70px;
+}
+.autre-info{
+    display: flex;
+flex-direction: column;
+gap: 25px;
+margin: 0 auto;
+}
+.link-register{
+color: var(--palette-grey);
+font-family: var(--font-primary);
+font-size: 14px;
+}
+
+.link-register:hover{
+    color: var(--font-primary);
+    }
+.profil-picture {
+    cursor: pointer;
+    color: #00b1ca;
+    font-weight: bold;
+}
+.input-file{
+    width: 100px;
+    height: 20px;
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+}
+.list-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pp input{
+    font-family: var(--font-primary);
+}
+
 
 /*------------------------------------------------------- Fiche produit -------------------------------------------------------------- */ 
 
@@ -504,6 +611,7 @@ padding-bottom: 10px;
 }
 
 .description-avis-quantité{
+
     display: flex;
     flex-direction: column;
     gap: 45px;
@@ -575,8 +683,12 @@ justify-content: center;
 .stars > p{
     align-self: center;
 }
+/*------------------------------------------------------- file ariane ------------------------------------------------------------------ */ 
 
-
+.file-ariane{
+display: flex;
+margin: 0 85px;
+}
 
 
 

@@ -7,7 +7,7 @@ $photo='no-image.png';
         // Récupération des données nécessaires
 	 $breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
 	 // Début du fil d'Ariane
-	 echo '<ul class="breadcrumb">';
+	 echo '<ul class="file-ariane">';
 
 	 // Parcours des éléments du fil d'Ariane
 	 foreach ($breadcrumb as $title => $url) {

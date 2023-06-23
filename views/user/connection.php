@@ -23,8 +23,8 @@ include VIEWS.'inc/header.php';
 
             <div class="submit-connect">
 
-            <input type="submit" class="btn-sidentifier" value="Se connecter" name="submit">
-            <input type="button" class="btn-sidentifier" value="S'enregistrer" onclick="window.location.href='inscription';">
+            <input type="submit" class="btn-first" value="Se connecter" name="submit">
+            <input type="button" class="btn-first" value="S'enregistrer" onclick="window.location.href='inscription';">
 
             </div>
             

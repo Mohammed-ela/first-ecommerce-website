@@ -3,59 +3,64 @@ $title = "Inscription";
 include VIEWS.'inc/header.php'; 
 ?>
 
-	?>
       <h1 class="title-h1-sidentifier">S'enregistrer</h1>
-	<section class="formulaire-inscription">
+
+
+<section class="formulaire-inscription">
 		
-	<form class="w-50 mx-auto" method="post" action="" enctype="multipart/form-data">
+	<form class="form-senregistrer" method="post" action="" enctype="multipart/form-data">
 	
-	<div class="row g-3">
-		<div class="form-floating col-md-6 mb-3">
-			<input type="text" class="form-control" id="nom" placeholder="Nom" name="nom">
-			<label for="nom">Nom</label>
+		<div class="nom-prenom">
+			<div class="lenom">
+				<input type="text" class="input-senregistrer" id="nom" placeholder="Votre nom" name="nom">
+				<label for="nom"></label>
+			</div>
+
+			<div class="leprenom">
+				<input type="text" class="input-senregistrer" id="prenom" placeholder="Votre prénom" name="prenom">
+				<label for="prenom"></label>
+			</div>
 		</div>
 
-		<div class="form-floating col-md-6 mb-3">
-			<input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenom">
-			 <label for="prenom">Prénom</label>
+		<div class="autre-info">
+				
+			<div class="f">
+				<label for="Pseudonyme"></label>
+				<input type="text" class="input-senregistrer-long" id="user" placeholder="Votre pseudo" name="pseudo">
+			</div>
+
+			<div class="em@il">
+				<label for="Email"></label>
+				<input type="email" class="input-senregistrer-long" id="email" placeholder="Votre email" name="email">
+			</div>
+
+			<div class="pass-word">
+				<label for="floatingPassword"></label>
+				<input type="password" class="input-senregistrer-long" id="password" placeholder="Votre mots de passe" name="mdp">
+			</div>
+
+			<div class="adrs">
+				<label for="Adresse"></label>
+				<input type="tel" class="input-senregistrer-long" id="number" placeholder="Votre adresse postale" name="adresse">
+			</div>
+
+			<div class="no">
+				<label for="Number"></label>
+				<input type="tel" class="input-senregistrer-long" id="number" placeholder="Votre numéro de téléphone" name="numero">
+			</div>
+
+			<div class="pp">
+				<input class="form-control" name="pp" type="file" id="photo">
+				<label for="formFile" class="form-label"></label>
+			</div>
+
+			<div class="list-btn">
+				<input type="submit" class="btn-first" value="S'enregistrer" name="submit">
+				<a href="connection" class="link-register">Déjà inscrit ?</a>
+			</div>
+			
 		</div>
-
-		<div class="form-group mb-2">
-            <label for="profil-picture" class="form-label">Ajouter une photo de profil : </label>
-			<input type="file" name="pp" id="photo">
-        </div>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input type="text" class="form-control" id="user" placeholder="Pseudo" name="pseudo">
-		<label for="Pseudonyme">Pseudo</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input type="email" class="form-control" id="email" placeholder="email" name="email">
-		<label for="Email">Email</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input type="password" class="form-control" id="password" placeholder="votre mdp" name="mdp">
-		<label for="floatingPassword">Mot de Passe</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input type="tel" class="form-control" id="number" placeholder="telephone" name="adresse">
-		<label for="Adresse">Adresse</label>
-	</div>
-
-	<div class="form-floating mb-3">
-		<input type="tel" class="form-control" id="number" placeholder="telephone" name="numero">
-		<label for="Number">Numéro de téléphone</label>
-	</div>
-
-	<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
-	<a href="connection" class="link-secondary">Se connecter</a>
-</form>
-
-
+	</form>
 </section>
 
 <?php include VIEWS.'inc/footer.php'; ?>

@@ -6,7 +6,7 @@ $breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
 unset($breadcrumb['Catégorie']);
 unset($breadcrumb['Produits']);
 	 // Début du fil d'Ariane
-	 echo '<ul class="breadcrumb">';
+	 echo '<ul class="file-ariane">';
 
 	 // Parcours des éléments du fil d'Ariane
 	 foreach ($breadcrumb as $title => $url) {
@@ -23,11 +23,8 @@ unset($breadcrumb['Produits']);
 	 // Fin du fil d'Ariane
 	 echo '</ul>';
 ?>
-          <h1 class="">Catalogue</h1>  
-        <main class="categorie">
-  
 
-
+	<main class="categorie">
 
 <?php for ($i=0; $i < count($allcategorie) ; $i++) { ?>    
 

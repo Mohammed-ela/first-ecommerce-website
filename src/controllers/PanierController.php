@@ -19,13 +19,21 @@ class PanierController
         }
         
     if ($page=='prd') {
+        $_SESSION["message"] .= "<div class=\"alert alert-success text-center w-100 mx-auto\" role=\"alert\">
+        Votre article a bien été ajouté au panier !
+            </div>";
         header("Location: " . BASE_PATH . "Produit?id={$_GET['cat']}");
         exit();
     }elseif ($page=='prd_info') {
+        $_SESSION["message"] .= "<div class=\"alert alert-success text-center w-100 mx-auto\" role=\"alert\">
+        Votre article a bien été ajouté au panier !
+            </div>";
         header("Location: " . BASE_PATH . "Produit_info?id={$idProduit}&cat={$_GET['cat']}");
-        
         exit();
     }else{
+        $_SESSION["message"] .= "<div class=\"alert alert-success w-100 text-center mx-auto\" role=\"alert\">
+        Votre article a bien été ajouté au panier !
+            </div>";
         header("Location: " .CONFIG['app']['projectBaseUrl']."public");
         exit();
     }

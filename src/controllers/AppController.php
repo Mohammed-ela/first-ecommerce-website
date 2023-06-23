@@ -199,13 +199,4 @@ class AppController extends Db
     }
 }
 
-
-
-    public static function actionPage()
-    {
-        $currentUrl = $_SERVER['REQUEST_URI'];
-    }
-
-
-
 }
