@@ -478,19 +478,103 @@ border: var(--bleu-fonce) 2px solid;
     border: var(--bleu-fonce) 2px solid;
 }
 
-/*------------------------------------------------------- Fiche produit -------------------------------------------------------------- */ 
 
-.fiche-produit{
+
+.formulaire-inscription{
     
 }
 
+/*------------------------------------------------------- Fiche produit -------------------------------------------------------------- */ 
 
+.fiche-produit{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 50px 80px;
+    gap: 46px;
+}
 
+.img-price-name{
+display: flex;
+flex-direction: column;
+gap: 20px;
+align-items: center;
+border-radius: 14px;
+border: 1px solid var(--secondary-bg-color);
+padding-bottom: 10px;
+}
 
+.description-avis-quantité{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    padding-top: 25px;
 
+}
 
+.title-fiche-produit{
+    color: var(--noir);
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight:600;
+    margin-bottom: 15px;
+}
 
+.para{
+color: var(--noir);
+font-family: var(--font-primary);
+font-size: 18px;
+font-weight: 500;
+line-height: 30.6px;
+}
 
+.share{
+    display: flex;
+    justify-content: space-between;
+}
+.description , .avis-stars , .panier-long {
+        margin-top: 20px;
+}
+.avis-stars{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 140px;
+    gap:20px;
+}
+
+.panier-long{
+    display: flex;
+    border-radius: 20px;
+    background: var(--palette-rouge);
+    width: 256px;
+    height: 50px;
+    padding: 0px 25px;
+    align-items: center;
+    gap: 30px;
+}
+
+.panier-btn{
+display: flex;
+justify-content: center;
+}
+
+.ajouterpanier{
+    color: var(--blanc);
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.stars{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars > p{
+    align-self: center;
+}
 
 
 
@@ -589,7 +673,7 @@ input:focus::placeholder {
 
 input:focus{
     caret-color: white;
-    padding-left: 8px; /* Ajoutez le padding souhaité */
+    padding-left: 8px; 
 }
   
 

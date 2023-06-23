@@ -14,7 +14,7 @@ unset($breadcrumb['Produits']);
 		 if ($url == '#') {
 			 echo '<li class="active">' . $title . '</li>';
 		 }
-		 // Liens normaux
+
 		 else {
 			 echo '<li><a href="' . $url . '">' . $title . '</a></li>';
 		 }

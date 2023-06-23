@@ -3,12 +3,10 @@ $title = "Inscription";
 include VIEWS.'inc/header.php'; 
 ?>
 
-
-			<h1 class="text-center my-5">Vous êtes au bon endroit pour vous enregistrez !</h1>
-	<?= isset($_SESSION["message"]) ? $_SESSION["message"] : ""; 
-
-			$_SESSION["message"] = "";
 	?>
+      <h1 class="title-h1-sidentifier">S'enregistrer</h1>
+	<section class="formulaire-inscription">
+		
 	<form class="w-50 mx-auto" method="post" action="" enctype="multipart/form-data">
 	
 	<div class="row g-3">
@@ -56,5 +54,8 @@ include VIEWS.'inc/header.php';
 	<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
 	<a href="connection" class="link-secondary">Se connecter</a>
 </form>
+
+
+</section>
 
 <?php include VIEWS.'inc/footer.php'; ?>

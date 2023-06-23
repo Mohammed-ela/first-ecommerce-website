@@ -1,5 +1,6 @@
 window.onload = function(){
 
+    //gestion du panier number
 
 var badgeElement = document.getElementById('panier-badge');
 var valeurSpan = badgeElement.innerText;
@@ -20,3 +21,18 @@ nombreArticles = valeurSpan;
     }
 
 }
+
+function copyCurrentUrl() {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl)
+      .then(() => {
+        alert('Le lien a été copié dans le presse-papiers.');
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la copie du lien :', error);
+      });
+  }
+
+function changeImage(element, newImage) {
+    element.src = newImage;
+  }
