@@ -45,8 +45,10 @@ $quantity = App::calculerTotalPanier($panier);
 
 			<!-- 1ER BOITE -->
 		  <div class="logo">
-			<a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
+				<a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
+				<label class="switch"><input type="checkbox"><span class="slider"></span></label>
 		  </div>
+		  
 
 			<!-- 2EME BOITE -->
 		<ul id="flex-mid">

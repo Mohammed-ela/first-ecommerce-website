@@ -24,20 +24,20 @@ $breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
 unset($breadcrumb['Produits']);
 // Début du fil d'Ariane
 echo '<ul class="file-ariane">';
-
-// Parcours des éléments du fil d'Ariane
+$count = count($breadcrumb);
+$current = 0;
 foreach ($breadcrumb as $title => $url) {
-    // Lien actif (dernier élément du fil d'Ariane)
-    if ($url == '#') {
-        echo '<li class="active">' . $title . '</li>';
-    }
-    // Liens normaux
-    else {
-        echo '<li><a href="' . $url . '">' . $title . '</a></li>';
-    }
+
+   $current++;
+
+   echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+
+   if ($current < $count) {
+       echo '<iconify-icon icon="ep:arrow-right" style="color: black;" width="18" height="18"></iconify-icon>';
+   }
+    
 }
 
-// Fin du fil d'Ariane
 echo '</ul>';
 ?>
 <body>
@@ -104,29 +104,15 @@ for ($i=0; $i < count($allProduct) ; $i++) {
                 <li class="img-box"><a href="Produit_info?id=<?=$tabprodrandom[$x]["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprodrandom[$x]["photo"] ?>" alt="<?= $tabprodrandom[$x]["titre"] ?>"></a></li>
                 <li><a href="Produit_info?id=<?=$tabprodrandom[$x]["id_montre"]?>"> <?= $tabprodrandom[$x]["titre"]?> </a> </li>
                 <li><p><?= $tabprodrandom[$x]["prix"]." €"?></p></li>
-                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprod[$x]['id_montre']?>&cat=<?=$tabprod[$x]['categorie_id']?>';">
+                <button class="bouton-cart" onclick="window.location.href='panier?id=<?=$tabprodrandom[$x]['id_montre']?>&cat=<?=$tabprodrandom[$x]['categorie_id']?>&p=prd';">
                     <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
                 </button>
                 
         </div>
         <?php    
-                 }
-                if (!empty($_SESSION['panier'])) {
-                    var_dump($_SESSION['panier']);
-                }
-               
-                
+                 }               
         ?>
        </div>
-
-
-
-
-
-
-
-
-
 
         </main>
 </body>

@@ -4,19 +4,24 @@ include VIEWS.'inc/header.php';
 $Product_selected=Produit::Produit_info();
 $i='0';
 $photo='no-image.png';
-        // Récupération des données nécessaires
+        
 	 $breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
-	 // Début du fil d'Ariane
-	 echo '<ul class="file-ariane">';
 
-	 // Parcours des éléments du fil d'Ariane
+	 echo '<ul class="file-ariane">';
+	 $count = count($breadcrumb);
+	 $current = 0;
 	 foreach ($breadcrumb as $title => $url) {
 
-			 echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+		$current++;
+
+		echo '<li><a href="' . $url . '">' . $title . '</a></li>';
+	
+		if ($current < $count) {
+			echo '<iconify-icon icon="ep:arrow-right" style="color: black;" width="18" height="18"></iconify-icon>';
+		}
 		 
 	 }
 
-	 // Fin du fil d'Ariane
 	 echo '</ul>';
 ?>
 <body>
