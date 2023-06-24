@@ -466,6 +466,7 @@ justify-content: center;
 align-items: center;
 }
 .description{
+    color: var(--secondary-bg-color);
     font-size: 13px;
     display: flex;
     border-radius: 17px;
@@ -494,7 +495,7 @@ justify-content: space-between;
 margin-top: 100px;
 }
 .livraison-qualite-garanti p{
-    color: var(--main-bg-color);
+    color: var(--secondary-bg-color);
     font-family: var(--font-primary);
 }
 
@@ -770,7 +771,7 @@ line-height: 30.6px;
     display: flex;
     justify-content: space-between;
 }
-.description , .avis-stars , .panier-long {
+.descriptions, .avis-stars , .panier-long {
         margin-top: 20px;
 }
 .avis-stars{
@@ -1172,21 +1173,19 @@ gap: 20px;
 font-size: 13px;
 }
 
-.link-nav.darkmode{
-    color: white;
-}
+
   /* Styles pour le mode sombre */
   body.dark-mode {
-    --main-bg-color: #2e2e2e;
-    --secondary-bg-color: #343434;
-    --bleu-fonce: #ffffff;
-    --bleu-clair: #292929;
+    --main-bg-color: #00487000;
+    --secondary-bg-color: #ffffffcd;
+    --bleu-fonce: #bcbcbc;
+    --bleu-clair: #4d4d4d;
     --palette-rouge: #990000;
     --palette-rouge-hover: #ff0000;
     --palette-orange: #ff8c0074;
-    --gris-clair: #444;
+    --gris-clair: #444444;
     --palette-grey: #777;
-    --blanc: #000;
+    --blanc: #020202b5;
     --noir: #fff;
     --font-primary: 'poppins';
   }

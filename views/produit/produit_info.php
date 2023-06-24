@@ -45,9 +45,9 @@ $photo='no-image.png';
 						</div>
 
 						<!-- boite 2 droite -->
-						<div class="description-avis-quantité">
+						<div class="descriptions-avis-quantité">
 							
-							<div class="description">
+							<div class="descriptions">
 								<div class="share"><h2 class="title-fiche-produit">Description :</h2><a href="" onclick="copyCurrentUrl()"><iconify-icon icon="material-symbols:share" style="color: black;" width="30" height="22"></iconify-icon></a></div>
 						 		<p class="para"><?= $Product_selected[$i]["description"]?></p>
 						 	</div>
