@@ -71,70 +71,159 @@ if ($cpt == 4) {
         </section>
 
 
-        <section class="produit-populaire">
-            <div class="title">
-                <p>Les promotions</p>
-                <a href="#">Voir tout</a>
-            </div>
-            <div class="nos-produits-populaire"> 
-        <?php    
-            $cpt=0;
-            shuffle($allProduct);
-            foreach ($allProduct as $tabprod) { 
-            $cpt++;
-        ?>
-            <div class="element-prd">
-                <li class="img-box"><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"><img src="<?= TELECHARGEMENT. "produit/". $tabprod["photo"] ?>" alt="<?= $tabprod["titre"] ?>"></a></li>
-                <li><a href="<?=BASE_PATH. "Produit_info?id=".$tabprod["id_montre"]?>"> <?= $tabprod["titre"]?> </a> </li>
-                <li class="price"><p class="prix-promo"><?= $tabprod["prix"]." €"?></p> <p><?= $tabprod["prix"]-0.3* $tabprod["prix"]." €"?></p></li>
-
-                <button class="bouton-cart" onclick="window.location.href='<?=BASE_PATH.'panier?id='.$tabprod['id_montre']?>&cat=<?=$tabprod['categorie_id']?>&p=home';">
-                    <iconify-icon class="icon-cart" icon="iconoir:cart" width="24" height="24"></iconify-icon>
-                </button>
-            </div>
-           
-<?php
-if ($cpt == 4) {
-    break;
-}
-}
-?>
-                    
+        <section class="produit-populaires">
+    <div class="title">
+        <p>Les avis clients</p>
+        <div class="fleche">
+            <iconify-icon class="button-prev" icon="iconamoon:arrow-left-2-thin" style="color: #B0B0B0;" width="30" height="30"></iconify-icon>
+            <iconify-icon class="button-next" icon="iconamoon:arrow-right-2-thin" style="color: #B0B0B0;" width="30" height="30"></iconify-icon>
+        </div>
     </div>
-</section>
-
-
-
-
-        <section class="produit-populaire">
-            <div class="title">
-                <p>Les avis clients</p>
-                    <div class="fleche">
-                    <iconify-icon icon="iconamoon:arrow-left-2-thin" style="color: #B0B0B0;" width="30" height="30"></iconify-icon>
-                    <iconify-icon icon="iconamoon:arrow-right-2-thin" style="color: #B0B0B0;" width="30" height="30"></iconify-icon>
+    <div style="overflow: hidden;" class="swiper-container mt-10 pb-1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
                     </div>
-                    
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="element-avis">
+                    <div class="element-inside">
+                        <div class="pseudo-img">
+                            <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
+                                height="80" alt="profil-pic">
+                            <div class="pseudo">
+                                <p>Lucas Martin</p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
+                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Si il y'a de nouvelle diapo .swiper-slide -->
+        </div>
+            
+
+
+        <div class="livraison-qualite-garanti">
+
+            <div class="livraison">
+                <iconify-icon icon="bi:box-seam-fill" style="color: #004870;" width="50" height="50"></iconify-icon>
+                <div class="text-desc">
+                    <p class="title-desc">Livraison Gratuite</p>
+                    <p>A partir de 50 € d’achats !</p>
+                </div>
             </div>
 
-            <div class="nos-produits-populaire"> 
-        
-              
-        </section>
-           
+            <div class="qualite">
+                <iconify-icon icon="mdi:crown" style="color: #004870;" width="50" height="50"></iconify-icon>
+                <div class="text-desc">
+                    <p class="title-desc">Qualité Française</p>
+                    <p>La qualité est notre priorité.</p>
+                </div>
+            </div>
 
+            <div class="garanti">
+                <iconify-icon icon="bi:box-seam-fill" style="color: #004870;" width="50" height="50"></iconify-icon>
+                <div class="text-desc">
+                    <p class="title-desc">Garantis 2 ans</p>
+                    <p>Sur tout nos produits !</p>
+                </div>
+            </div>
 
+        </div>
 
-
-
-
-
-    </main>
+</section>
+   
 </body>
 
 <?php  
 
 include VIEWS.'inc/footer.php'; 
-if (isset($_SESSION['user'])) {
-    app::showArray($_SESSION['user']);
-}
+// if (isset($_SESSION['user'])) {
+//     app::showArray($_SESSION['user']);
+// }
 ?>

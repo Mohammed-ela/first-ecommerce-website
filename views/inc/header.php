@@ -31,12 +31,13 @@ $quantity = App::calculerTotalPanier($panier);
 	<!-- iconify -->
 	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 	<!-- Javascript -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>	
 
 	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 	<script src="<?= ASSETS. "js/main.js"?>" defer></script>
 	<script src="<?= ASSETS. "js/swiper.js"?>" defer></script>
+	<script src="<?= ASSETS. "js/dark-mode.js"?>" defer></script>
 
   </head>
 <header>
@@ -46,7 +47,8 @@ $quantity = App::calculerTotalPanier($panier);
 			<!-- 1ER BOITE -->
 		  <div class="logo">
 				<a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
-				<label class="switch"><input type="checkbox"><span class="slider"></span></label>
+				<label class="switch"><input type="checkbox" id="toggleMode"><span class="slider"></span></label>
+
 		  </div>
 		  
 
@@ -59,10 +61,17 @@ $quantity = App::calculerTotalPanier($panier);
 			<li class="item-nav">
 	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Catégories</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
 	        </li>
+			<?php $numbers = array(2, 6, 7); ?>
 			<li class="item-nav">
-	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Produits</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
+	          <a class="link-nav" href="<?=BASE_PATH. "Produit?id=".App::getRandomNumberFromArray($numbers) ?>">Produits</a>
 			  <!-- ajout produit avec différent id -->
-	        </li>				
+	        </li>	
+			<li class="item-nav">
+	          <a class="link-nav" href="<?=BASE_PATH. "commande" ?>">Mes commandes</a>
+			  <!-- ajout produit avec différent id -->
+	        </li>
+
+						
 		</ul>
 			
 
@@ -88,8 +97,8 @@ $quantity = App::calculerTotalPanier($panier);
 			<?php
 			if ($connected=='false') {
 			?>
-									<!-- gestion du profil  -->
-
+									<!-- gestion du panier et profil  -->
+			
 <div class="outils">
 
 		<ul id="panier">

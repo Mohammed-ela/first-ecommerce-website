@@ -63,3 +63,17 @@ document.addEventListener("DOMContentLoaded", function() {
   // Définir la classe "active" sur le premier bouton
   paginationButtons[0].classList.add("active");
 });
+
+
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  navigation: {
+  prevEl: '.button-prev',
+  nextEl: '.button-next',
+},
+autoplay: {
+delay: 2000,
+},
+loop: true,
+});

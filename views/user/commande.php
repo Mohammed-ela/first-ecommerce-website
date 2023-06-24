@@ -2,7 +2,11 @@
 $title = "Mon profil";
 include VIEWS.'inc/header.php'; 
 if (!App::isconnect()) {
-header("Location:" . BASE_PATH . "");
+$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					Vous devez d'abord vous connectez pour voir vos commandes
+				</div>";
+header("Location:" . BASE_PATH . "connection");
+exit();
 }
 if (!empty($_SESSION['user']['id_user'])) {
 $achats = User::commandes();

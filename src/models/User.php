@@ -274,7 +274,9 @@ class User extends Db
 		if ($reponse)
 		{
 			$commande = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
-		}else {
+		}
+		
+		if($requetePreparee->rowCount() == 0){
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 					Vous n'avez aucune commande pour le moment !
 				</div>";

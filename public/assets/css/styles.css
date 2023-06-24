@@ -15,7 +15,9 @@
     --noir:#000;
     --font-primary:'poppins';
 }
-
+body{
+    background-color: var(--blanc);
+}
 *{
     font-family: var(--font-primary);
     list-style-type: none;
@@ -390,6 +392,14 @@ color: var(--main-bg-color);
     gap: 60px;
 }
 
+.produit-populaires{
+    position: relative;
+    padding: 0 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 80px;
+}
 .title{
     display: flex;
     justify-content: space-between;
@@ -409,11 +419,12 @@ color: var(--main-bg-color);
 
 .nos-produits-populaire{
     display: grid;
-    grid-template-columns: 264px 264px 264px 264px;
-    justify-content: space-between;
-    margin-bottom: 100px;
+    grid-template-columns: repeat(4,265px);
+    gap: 80px;
 
 }
+
+
 
 .prix-promo{
     text-decoration: line-through;
@@ -424,6 +435,107 @@ color: var(--main-bg-color);
     justify-content: space-between;
     padding: 0 25px;
 }
+.element-avis{
+    border-radius: 20px;
+    border: 1px solid #00989D;
+    display: flex;
+width: 411px;
+height: 242px;
+padding: 0px 0px 0px 16.826px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 26px;
+}
+.nos-avis{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 80px;
+    color: var(--bleu-fonce);
+    overflow: hidden;
+    }
+.element-inside{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.pseudo-img{
+    display: flex;
+gap: 80px;
+justify-content: center;
+align-items: center;
+}
+.description{
+    font-size: 13px;
+    display: flex;
+    border-radius: 17px;
+    background: var(--bleu-clair);
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.img-pp{
+width: 100px;
+height: 100px;
+border-radius: 50px;
+
+}
+
+
+
+.livraison-qualite-garanti{
+display: flex;
+justify-content: space-between;
+margin-top: 100px;
+}
+.livraison-qualite-garanti p{
+    color: var(--main-bg-color);
+    font-family: var(--font-primary);
+}
+
+.livraison{
+display: flex;
+align-items: center;
+gap: 10px;
+
+}
+.qualite{
+display: flex;
+align-items: center;
+gap: 10px;
+
+}
+.garanti{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.title-desc{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.text-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1059,3 +1171,41 @@ justify-content: center;
 gap: 20px;
 font-size: 13px;
 }
+
+.link-nav.darkmode{
+    color: white;
+}
+  /* Styles pour le mode sombre */
+  body.dark-mode {
+    --main-bg-color: #2e2e2e;
+    --secondary-bg-color: #343434;
+    --bleu-fonce: #ffffff;
+    --bleu-clair: #292929;
+    --palette-rouge: #990000;
+    --palette-rouge-hover: #ff0000;
+    --palette-orange: #ff8c0074;
+    --gris-clair: #444;
+    --palette-grey: #777;
+    --blanc: #000;
+    --noir: #fff;
+    --font-primary: 'poppins';
+  }
+  
+  body.light-mode {
+    --main-bg-color: #004870;
+    --secondary-bg-color: #007092;
+    --bleu-fonce: #003775;
+    --bleu-clair: #E2F4FF;
+    --palette-rouge: #E60000;
+    --palette-rouge-hover: #ff4f55;
+    --palette-orange: #FAAE16;
+    --gris-clair: #E7E7E7;
+    --palette-grey: #9facbd;
+    --blanc: #fff;
+    --noir: #000;
+    --font-primary: 'poppins';
+  }
+  
+  
+  
+  

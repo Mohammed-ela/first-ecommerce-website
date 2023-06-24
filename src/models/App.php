@@ -148,6 +148,10 @@ public static function getBreadcrumbData($currentUrl)
 	return $breadcrumb;
 }
 
+public static function getRandomNumberFromArray($numbers) {
+    $randomKey = array_rand($numbers);
+    return $numbers[$randomKey];
+}
 
 }
 	
