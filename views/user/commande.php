@@ -4,55 +4,95 @@ include VIEWS.'inc/header.php';
 if (!App::isconnect()) {
 header("Location:" . BASE_PATH . "");
 }
+if (!empty($_SESSION['user']['id_user'])) {
+$achats = User::commandes();
+}
+$allmontre = Panier::show_panier();
+
 
 ?>
+<style>
 
 
-			<h1 class="text-center my-5"> Bienvenue dans la gestion de votre profil <?= $_SESSION['user']['pseudo'] ?></h1>
-	<?= !empty($_SESSION["message"]) ? $_SESSION["message"] : ""; ?>
-            <h2 class="text-center mb-5 ">Vous êtes membre depuis le  <?= date("d-m-Y",strtotime($_SESSION['user']['date_de_creation'])) ?> </h2>
-<form method="post" action="my_profil_register?id=<?=$_SESSION['user']['id_user']?>" class="w-50 mx-auto">
-	
-	<div class="row g-3">
-		<div class="form-floating col-md-6 mb-3">
-			<input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" value="<?=!empty($_SESSION['user']['nom']) ? $_SESSION['user']['nom'] : "";?>">
-			<label for="nom">Nom</label>
-		</div>
+</style>
 
-		<div class="form-floating col-md-6 mb-3">
-			<input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenom" value="<?=!empty($_SESSION['user']['prenom']) ? $_SESSION['user']['prenom'] : "";?>">
-			 <label for="prenom">Prénom</label>
-		</div>
-		<div class="form-group mb-2">
+			<h1 class="title-h1-nopad"> Bienvenue dans l'historique de vos commande</h1>
+			<section class="commandes">
+<?php 
+if (!empty($_SESSION['user']['id_user'])) {
+    $table = '<table class="table-commandes responsive">';
+    $table .= "\n\t<thead>\n\t\t<tr class='title-tr'>\n\t\t\t<th>Produit</th>\n\t\t\t<th>Quantité</th>\n\t\t\t<th>Couleur</th>\n\t\t\t<th>Prix</th>\n\t\t\t<th style='text-align: end;'>Montant Total</th>\n\t\t</tr>\n\t</thead>";
+    $table .= "\n\t<tbody>";
+    
+    $currentDate = null;
+    $currentHour = null;
+    $totalCommande = 0; // Variable pour stocker le montant total de chaque commande
+    
+    foreach ($achats as $achat) {
+        $date = date('d-m-Y', strtotime($achat['date_achat']));
+        $heure = date('H:i:s', strtotime($achat['date_achat']));
+        
+        if ($date != $currentDate) {
+            // Nouvelle date, créez une nouvelle ligne avec la date
+            $table .= "\n\t\t<tr class='commande-date'>\n\t\t\t<td colspan='6'><h1 class='h1-in-tab'>Mes commandes du " . $date . "</h1></td>\n\t\t</tr>";
+    
+            $currentDate = $date;
+            $currentHour = null; // Réinitialise l'heure pour la nouvelle date
+        }
+    
+        if ($heure != $currentHour) {
+            // Nouvelle heure, créez une nouvelle ligne avec l'heure
+            if ($currentHour != null) {
+                // Afficher le montant total de la commande précédente
+                $table .= "\n\t\t<tr class='montant-total'>\n\t\t\t<td colspan='4'></td>\n\t\t\t<td>Total : " . $totalCommande . " €</td>\n\t\t</tr>";
+            }
+    
+            $table .= "\n\t\t<tr class='commande-heure'>\n\t\t\t<td colspan='6'><h3>Votre commandes passées à " . $heure . "</h3></td>\n\t\t</tr>";
+    
+            $currentHour = $heure;
+            $totalCommande = 0; // Réinitialise le montant total pour la nouvelle commande
+        }
+    
+        foreach ($allmontre as $montre) {
+            if ($montre['id_montre'] == $achat['montre_id']) {
+                $id = $achat['montre_id'];
+                $titre = $montre['titre'];
+                $couleur = $montre['couleur'];
+                $image = $montre['photo'];
+                $prix = $montre['prix'];
+                break;
+            }
+        }
+    
+        $montantTotalLigne = $achat['quantite'] * $prix; // Calcul du montant total pour la ligne de commande actuelle
+        $totalCommande += $montantTotalLigne; // Ajout du montant total de la ligne de commande au montant total de la commande en cours
+    
+        $table .= "\n\t\t<tr class='article-cmd'>";
+        $table .= "\n\t\t\t<td><a href='Produit_info?id=" . $id . "'>" . $titre . "<img src='" . TELECHARGEMENT . "produit/" . $image . "' alt='" . $titre . "' width='35' height='35'></a></td>";
+        $table .= "\n\t\t\t<td>" . $achat['quantite'] . "</td>";
+        $table .= "\n\t\t\t<td>" . $couleur . "</td>";
+        $table .= "\n\t\t\t<td>" . $prix . " €</td>";
+        $table .= "\n\t\t\t<td></td>"; // Colonne vide pour le montant total de la ligne de commande (non affiché)
+        $table .= "\n\t\t</tr>";
+    }
+    
+    // Afficher le montant total de la dernière commande
+    if ($currentHour != null) {
+        $table .= "\n\t\t<tr class='montant-total'>\n\t\t\t<td colspan='4'></td>\n\t\t\t<td>Total : " . $totalCommande . " €</td>\n\t\t</tr>";
+    }
+    
+    $table .= "\n\t</tbody>\n</table>";
+    
+    echo $table;
+}
+?>
+</section>
 
-		<label for="profil-picture" class="form-label">Modifier votre ancienne photo de profil :&nbsp;</label><span name=picture-profil><?=!empty($_SESSION['user']['pp']) ? $_SESSION['user']['pp'] : "";?></span><br>
-		<input type="file" name="pp" id="photo" value="" > 
-			
-        </div>
-	</div>
 
-	<div class="form-floating mb-3">
-		<input type="text" class="form-control" id="user" placeholder="Pseudo" name="pseudo" value="<?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?>">
-		<label for="user">Pseudo</label>
-	</div>
 
-	<div class="form-floating mb-3">
-		<input type="email" class="form-control" id="email" placeholder="email" name="email" value="<?=!empty($_SESSION['user']['email']) ? $_SESSION['user']['email'] : "";?>">
-		<label for="user">Email</label>
-	</div>
 
-	<div class="form-floating mb-3">
-		<input type="text" class="form-control" id="number" placeholder="adresse" name="adresse" value="<?=!empty($_SESSION['user']['adresse']) ? $_SESSION['user']['adresse'] : "";?>">
-		<label for="adresse">Adresse</label>
-	</div>
 
-	<div class="form-floating mb-3">
-		<input type="tel" class="form-control" id="number" placeholder="numero de telephone" name="numero" value="<?=!empty($_SESSION['user']['numero']) ? $_SESSION['user']['numero'] : "";?>">
-		<label for="numero">Numéro de téléphone</label>
-	</div>
 
-	<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
-</form>
-<?php  
+<?php 
 include VIEWS.'inc/footer.php'; 
 ?>

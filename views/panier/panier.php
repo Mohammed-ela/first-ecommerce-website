@@ -3,42 +3,31 @@ $title = "Synkro";
 include VIEWS.'inc/header.php'; 
 $allmontre = Panier::show_panier();
 // var_dump($allmontre);
-
-?>
-
-<body>
-    <main>
-        
-        <h2>Résumé de votre panier</h2>
-        <?php  
-    if (!empty($_SESSION["message"])) {
-        echo($_SESSION["message"]);
-        unset($_SESSION["message"]);
-    }
-      
-        $panier = $_SESSION['panier'];
+$panier = $_SESSION['panier'];
 
         // Variables pour le total
         $quantiteTotal = 0;
         $prixTotal = 0;
-        
-// echo(count($panier));
-        ?>
+?>
 
-        <div class="table-responsive-md">
-            <table class="table table-striped container-sm">
-                <thead class="thead-dark">
-                    <tr>
+<body>
+    <main>
+        <section class="list-panier">
+            <!-- tableau 1 -->
+            <table class="first-tab">
+                <thead class="">
+                    <tr class="flex-tr">
                         <th scope="col">Produit</th>
+                        <th  style="text-align: center;" scope="col">Image</th>
                         <th scope="col">Quantité</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Couleur</th>
-                        <th scope="col">Autonomie</th>
-                        <th scope="col">Image</th>
                         <th scope="col">Prix</th>
+                        <th scope="col" style="text-align:end;"> 
+                            <form method="POST" action="viderpanier">
+                                <input type="hidden"><button type="submit" class="btn-supprimer">Vider Panier</button>
+                        </form></th>
                     </tr>
                 </thead>
-                <tbody class="table-striped">
+                <tbody class="">
                     <?php
                     foreach ($panier as $produitId => $quantite) {
                        
@@ -62,54 +51,64 @@ $allmontre = Panier::show_panier();
                             }
                         }
                         ?>
-                        <tr>
-                            <td><?= $titre ?></td>
-                            <td><?= $quantite ?></td>
-                            <td><?= $description ?></td>
-                            <td><?= $couleur ?></td>
-                            <td><?= $autonomie ?></td>
-                            <td><img src="<?= TELECHARGEMENT. "produit/". $image ?>" id="picture-admin"></td>
+                        <tr class="article-panier">
+                            <td><a href="Produit_info?id=<?=$montre['id_montre']?>"><?= $titre ?></a></td>
+                            <td style="text-align: center;"><a href="Produit_info?id=<?=$montre['id_montre']?>"><img src="<?= TELECHARGEMENT. "produit/". $image ?>" id="<?=$titre?>"></a></td>
+                            <td style="text-align: center;"><?= $quantite ?></td>
                             <td><?= $prix." €"?></td>
-                            <td>
-
-                                <a href="supprimer_panier?id=<?= $produitId ?>" class="btn btn-danger" >Supprimer</a>
+                            <td style="text-align: end;">
+                                <a href="supprimer_panier?id=<?= $produitId ?>" class="btn-supprimer" >Supprimer</a>
                             </td>
                         </tr>
+                           
+
+                        
                         <?php
                         // Mise à jour du total
                         $quantiteTotal += $quantite;
                         $prixTotal += $prix * $quantite;
 
                     }
+
+
                     ?>
                 </tbody>
             </table>
-            <table class="table table-striped container-sm">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Quantité Total</th>
-                        <th scope="col">Prix total</th>
+
+
+            <!-- tableau 2 -->
+            <table class="second-tab">
+                <thead class="">
+                    <tr class="flex-tr">
+                        <th style="vertical-align: middle;text-align: center;" scope="col">Resumé</th>
+                        
                     </tr>
                 </thead>
-                <tbody class="table-striped">
-                    <td><?= $quantiteTotal ?></td>
-                    <td><?= $prixTotal ?> €</td>
+                <tbody class="">
+                    <tr class="article-panier">
+                        <th style="vertical-align: middle;">Quantité :</th>
+                    <td style="text-align: center;"><?= $quantiteTotal ?></td>
+                    </tr>  
+                    <tr class="article-panier">
+                    <th style="vertical-align: middle;">Prix total :</th>
+                    <td style="text-align: center;"><?= $prixTotal ?> €</td>
+                    </tr> 
 
-                    <td><form method="POST" action="paiement">
-  <input type="hidden" name="prx" value="<?= $prixTotal ?>">
-  <button type="submit" class="btn btn-danger">Payer</button>
-</form>
-</td>
-<td><form method="POST" action="viderpanier">
-  <input type="hidden">
-  <button type="submit" class="btn btn-danger">Vider Panier</button>
-</form>
-</td>
-                          
                 </tbody>
+                <td>
+
+                        
+                    
+    <form method="POST" action="paiement">
+      <input type="hidden" name="prx" value="<?= $prixTotal ?>">
+      <button type="submit" class="btn-payez">Payer</button>
+    </form>
+</td>
+
                 
             </table>
-        </div>
+        </section>
+        
     </main>
 </body>
 

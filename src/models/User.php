@@ -267,23 +267,17 @@ class User extends Db
 		$requetePreparee = self::getDb()->prepare($query);
 
 		$reponse = $requetePreparee->execute([
-
-			$_GET['id']
+			$_SESSION['user']['id_user']
 		]);
 
-		//verifie si la requete s'est bien déroulé
-		if (!$reponse)
-		{
-
-			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					Quelque chose ne s'est pas déroulé correctement pendant la requete
-				</div>";
-				return false;
-		}
-		
+		//verifie si la requete s'est bien déroulé	
 		if ($reponse)
 		{
 			$commande = $requetePreparee->fetchAll(PDO::FETCH_ASSOC);
+		}else {
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					Vous n'avez aucune commande pour le moment !
+				</div>";
 		}
 
 		return $commande;

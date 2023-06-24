@@ -78,13 +78,13 @@ class PanierController
     
 
                 $_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
-                Le produit selectionné a bien etait supprimé du panier !
+                Le produit selectionné a bien été supprimé du panier !
             </div>";
                 header("Location: " . BASE_PATH . "list_panier");
                 exit;
             } else {
                 
-                $_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+                $_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
                     Le produit n'existe pas dans le panier.
                 </div>";
                 header("Location: " . BASE_PATH . "list_panier");

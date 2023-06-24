@@ -82,7 +82,7 @@ public static function paiement(){
 		}
 		unset($_SESSION['panier']);
 		unset($_SESSION["message"]);
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+		$_SESSION["message"] .= "<div class=\"alert alert-successs w-50 mx-auto\" role=\"alert\">
                 Votre Paiement de " .$_POST['prx']. " € à bien été effectué ! consultez vos commande pour avoir le détail de votre commande.
             </div>";
 		
@@ -92,7 +92,7 @@ public static function paiement(){
 	}else{
 		unset($_SESSION["message"]);
 		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-                Le panier est vide.
+                Vous n'avez selectionné aucun article dans votre panier 
             </div>";
 		header("Location:" . BASE_PATH . "list_panier");
 		exit();
@@ -100,13 +100,6 @@ public static function paiement(){
 
 }
 
-public static function commande() {
-
-
-
-
-
-}
 
 public static function where_im(){
 	// Stockage de l'URL actuelle
@@ -120,6 +113,10 @@ $pageName = basename($baseUrl);
 
 echo $pageName;
 }
+
+
+
+
 public static function getBreadcrumbData($currentUrl)
     {
        // Tableau multidimensionnel contenant les informations des pages

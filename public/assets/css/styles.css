@@ -7,6 +7,7 @@
     --bleu-fonce:#003775;
     --bleu-clair: #E2F4FF;
     --palette-rouge:#E60000;
+    --palette-rouge-hover:#ff4f55;
     --palette-orange:#FAAE16;
     --gris-clair:#E7E7E7;
     --palette-grey:#9facbd;
@@ -16,7 +17,7 @@
 }
 
 *{
-    font-family: 'poppins';
+    font-family: var(--font-primary);
     list-style-type: none;
 }
 .alert-success{
@@ -247,11 +248,25 @@ justify-content: center;
     font-weight: 800;
     text-align: center;
     font-family: var(--font-primary);
-    margin-top: 150px;
+    margin-top: 70px;
     margin-bottom: 90px;
+}
+.title-h1-nopad{
+    margin-top: 50px;
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    font-family: var(--font-primary);
+
 }
 .title-h2{
     padding-left: 150px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 27px;
+    color: var(--secondary-bg-color);
+}
+.title-h2-nopad{
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 27px;
@@ -762,14 +777,162 @@ gap: 15px;
   }
 
 
+/*------------------------------------------------------- Resume commande ------------------------------------------------------------------ */ 
 
 
 
+  .commandes{
+    margin: 0 auto;
+    padding: 70px 60px;
+    font-family: 'Poppins';
+    height: 100%;
+}
+.commandes a{
+    text-decoration: none;
+    color: black;
+}
+.commandes a:hover{
+    text-decoration: none;
+    color: var(--bleu-fonce);
+}
+.table-commandes {
+width: 100%;
+font-family: 'Poppins';
+border-collapse : separate;
+border-spacing : 10px;
+box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94,104,121,0.288);
+border-radius: 10px;
+background-color: var(--blanc);
+}
 
+.h1-in-tab{
+text-align: left;
+font-size: 22px;
+font-weight: 600;
+margin-top: 25px;
+margin-bottom: 25px;
+background-color: #007092;
+color: white;
+padding: 8px;
+border-radius: 8px;
+}
 
+.montant-total{
+text-align: end;
+}
+.commande-heure{
+background-color: #E2F4FF;
+text-align: left;
+font-size: 16px;
 
+}
+.commande-heure td {
+padding: 4px;
+border-radius: 4px;
+text-align: center;
+}
+.title-tr{
+background-color: white;
+font-size: 14px;
+color: #004870;
+}
 
+/*------------------------------------------------------- Resume Panier ------------------------------------------------------------------ */ 
 
+.list-panier{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 0 100px;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 209px;
+
+}
+.list-panier img{
+    width: 150px;
+    height: 112px;
+
+}
+.first-tab{
+    width: 100%;
+    font-family: var(--font-primary);
+    border-collapse : separate;
+    border-spacing : 10px;
+    
+}
+.second-tab{
+    width: 100%;
+    font-family: var(--font-primary);
+    border-collapse : separate;
+    border-spacing : 10px;
+    
+}
+.article-panier td a{
+    text-decoration: none;
+    color: var(--noir);
+    }
+.article-panier td a:hover{
+        text-decoration: none;
+        color: var(--bleu-fonce);
+}
+.article-panier td{
+vertical-align: middle;
+}
+
+.btn-payez{
+    color: var(--blanc);
+    font-family: var(--font-primary);
+text-align: center;
+font-size: 16;
+font-weight: 600;
+width: 256px;
+height: 40px;
+padding: 0px 25px;
+justify-content: center;
+align-items: center;
+border-radius: 20px;
+background: var(--palette-orange);
+border: none;
+margin: 0 auto;
+}
+.btn-payez:hover{
+    color: var(--palette-orange);
+    font-family: var(--font-primary);
+text-align: center;
+font-size: 16;
+font-weight: 600;
+width: 256px;
+height: 40px;
+padding: 0px 25px;
+justify-content: center;
+align-items: center;
+border-radius: 20px;
+background: var(--blanc);
+border: 2px solid var(--palette-orange);
+
+}
+
+.btn-supprimer{
+color: var(--blanc) !important;
+font-family: var(--font-primary);
+text-align: center;
+font-size: 14;
+font-weight: 600;
+width: 150px;
+height: 35px;
+padding: 0px 25px;
+justify-content: center;
+align-items: center;
+border-radius: 20px;
+background: var(--palette-rouge);
+border: none;
+margin: 0 auto;
+}
+
+.btn-supprimer:hover{
+    color: var(--blanc);
+    background: var(--palette-rouge-hover);
+    }
 
 
 

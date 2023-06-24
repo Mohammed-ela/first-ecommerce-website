@@ -94,7 +94,7 @@ class UserController
 	
 	public static function commandes(){
 		User::commandes();
-		include VIEWS . "user/my_profil.php";
+		include VIEWS . "user/commande.php";
 	}
 	
 }
