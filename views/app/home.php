@@ -207,7 +207,7 @@ if ($cpt == 4) {
             </div>
 
             <div class="garanti">
-                <iconify-icon icon="bi:box-seam-fill" style="color: #004870;" width="50" height="50"></iconify-icon>
+                <iconify-icon icon="iconamoon:certificate-badge-bold" style="color: #004870;" width="50" height="50"></iconify-icon>
                 <div class="text-desc">
                     <p class="title-desc">Garantis 2 ans</p>
                     <p>Sur tout nos produits !</p>

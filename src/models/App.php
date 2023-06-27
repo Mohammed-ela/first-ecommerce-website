@@ -82,7 +82,7 @@ public static function paiement(){
 		}
 		unset($_SESSION['panier']);
 		unset($_SESSION["message"]);
-		$_SESSION["message"] .= "<div class=\"alert alert-successs w-50 mx-auto\" role=\"alert\">
+		$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
                 Votre Paiement de " .$_POST['prx']. " € à bien été effectué ! consultez vos commande pour avoir le détail de votre commande.
             </div>";
 		

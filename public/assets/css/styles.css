@@ -419,9 +419,9 @@ color: var(--main-bg-color);
 
 .nos-produits-populaire{
     display: grid;
-    grid-template-columns: repeat(4,265px);
-    gap: 80px;
-
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    justify-content: center;
 }
 
 
