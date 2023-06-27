@@ -120,12 +120,16 @@ $quantity = App::calculerTotalPanier($panier);
 	
 
 		<ul id="user">
-
+<?php 
+		if ($_SESSION['user']['id_user']) {
+?>
 			<li class="item-nav">
 			
 <a class="link-nav" href="<?=BASE_PATH. "mon-profil?id=".$_SESSION['user']['id_user']?>"><img src="<?= TELECHARGEMENT. "user/". $_SESSION['user']['pp'] ?>" class="rounded-circle img-fluid" id="picture-profil" alt="profil-picture" ></a>
 			</li>	
-
+			<?php 
+		}
+?>
 			<li class="item-nav">
 				<a class="link-nav" href="<?=BASE_PATH. "mon-profil?id=".$_SESSION['user']['id_user']?>">
 					<span> <?=!empty($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : "";?> </span> 
