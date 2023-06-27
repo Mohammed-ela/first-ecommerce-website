@@ -20,11 +20,13 @@ $quantity = App::calculerTotalPanier($panier);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?=$title?></title>
-	<meta name="keyword" content="Projet E-commerce, Projet fin d'année, montre connecte, smartwatch, Marketplace, E-commerce, BDD. ">
-    <meta name="description" content="Synkro est un site E-commerce proposant une panoplie de montre dedstinés au sportif à vendre ! ">
+	
+	<meta name="keyword" content="Projet E-commerce, Projet fin d'année, montre connecte, smartwatch, Marketplace, E-commerce, BDD , PHP , commerce , vente. ">
+    <meta name="description" content="Synkro est un site E-commerce proposant une panoplie de montre destinés au sportif à vendre ! ">
+	<!-- Fav icon -->
+	<link rel="icon" type="image/png" href="<?= TELECHARGEMENT.  'logo/icon.png' ?>">
 	<!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<!-- Tailwin -->
 	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
     <link rel="stylesheet" href="<?= ASSETS. "css/styles.css"?>">
@@ -45,11 +47,15 @@ $quantity = App::calculerTotalPanier($panier);
 <nav class="navbar">
 
 			<!-- 1ER BOITE -->
-		  <div class="logo">
-				<a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img src="<?= TELECHARGEMENT. "user/default-pp.png"?>" id="logo" alt="logo-synkro"></a>
-				<label class="switch"><input type="checkbox" id="toggleMode"><span class="slider"></span></label>
-
-		  </div>
+			<div class="logo">
+  <a href="<?=CONFIG['app']['projectBaseUrl']."public"?>">
+    <img src="<?= TELECHARGEMENT.  'logo/logo.png' ?>" id="logo" alt="logo-synkro">
+  </a>
+  <label class="switch">
+    <input type="checkbox" id="toggleMode">
+    <span class="slider"></span>
+  </label>
+</div>
 		  
 
 			<!-- 2EME BOITE -->
@@ -59,7 +65,7 @@ $quantity = App::calculerTotalPanier($panier);
 	          <a class="link-nav" aria-current="page" href="<?=CONFIG['app']['projectBaseUrl']."public"?>">Accueil</a>
 	        </li>
 			<li class="item-nav">
-	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Catégories</a><iconify-icon icon="ep:arrow-down" width="24" height="24"></iconify-icon>
+	          <a class="link-nav" href="<?=BASE_PATH. "Categorie" ?>">Catégories</a>
 	        </li>
 			<?php $numbers = array(2, 6, 7); ?>
 			<li class="item-nav">
@@ -142,6 +148,7 @@ $quantity = App::calculerTotalPanier($panier);
 			<?php
 			if (!$connected=='false') {
 			?>
+			
 			<ul id="guest">
 				<li class="item-nav">
 				<iconify-icon icon="ph:user" width="24" height="24"></iconify-icon><a class="link-nav" href="<?=BASE_PATH. "connection" ?>">Se connecter</a>
@@ -150,6 +157,7 @@ $quantity = App::calculerTotalPanier($panier);
 					<a class="link-nav" href="<?=BASE_PATH. "inscription" ?>">S'enregistrer</a> 
 				</li>
 			</ul>
+
 			<?php	
 			}
 			?>

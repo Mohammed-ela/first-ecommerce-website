@@ -10,7 +10,7 @@ $allProduct=Produit::showDb();
                 }elseif ($_GET['id']=='6') {
                     $h1='Montre de Sport';
                 }elseif ($_GET['id']=='7') {
-                    $h1='Montre de Luxe';
+                    $h1='Bracelet Interchangable';
                 }else {
             $_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
 				  ERREUR 404 page produit.php dossier produit

@@ -32,12 +32,9 @@ $photo='no-image.png';
 	 					<!-- boite 1 gauche -->
 	 					<div class="img-price-name">
 						 <img src="<?= TELECHARGEMENT. "produit/". $Product_selected[$i]['photo'] ?>"
-     class="img-fluid"
      alt="<?= $Product_selected[$i]["titre"] ?>"
      width="400"
-     height="600"
-     onmouseover="changeImage(this, '<?= TELECHARGEMENT. "produit/". $photo ?>')"
-     onmouseout="changeImage(this, '<?= TELECHARGEMENT. "produit/". $Product_selected[$i]['photo'] ?>')">	
+     height="600">	
 	 
 	 
 	 						<p class="text-center"><?=$Product_selected[$i]["titre"]?></p>
@@ -51,11 +48,7 @@ $photo='no-image.png';
 								<div class="share"><h2 class="title-fiche-produit">Description :</h2><a href="" onclick="copyCurrentUrl()"><iconify-icon icon="material-symbols:share" style="color: black;" width="30" height="22"></iconify-icon></a></div>
 						 		<p class="para"><?= $Product_selected[$i]["description"]?></p>
 						 	</div>
-							 <script>
-  function changeImage(element, newImage) {
-    element.src = newImage;
-  }
-</script>
+
 
 							<div class="avis">
 								<h2 class="title-fiche-produit">Avis :</h2>

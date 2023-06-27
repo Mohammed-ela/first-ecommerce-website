@@ -32,7 +32,3 @@ function copyCurrentUrl() {
         console.error('Erreur lors de la copie du lien :', error);
       });
   }
-
-function changeImage(element, newImage) {
-    element.src = newImage;
-  }

@@ -79,6 +79,7 @@ if ($cpt == 4) {
             <iconify-icon class="button-next" icon="iconamoon:arrow-right-2-thin" style="color: #B0B0B0;" width="30" height="30"></iconify-icon>
         </div>
     </div>
+
     <div style="overflow: hidden;" class="swiper-container mt-10 pb-1">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -88,12 +89,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Thomas García </p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>La FitTrack X3 a changé ma vie. Je peux suivre ma santé de près et prendre des mesures préventives. Je la recommande vivement !" </p>
                         </div>
                     </div>
                 </div>
@@ -105,12 +105,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Pierre Durant</p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>La FitLife ActiveX est parfaite pour mes séances d'entraînement. Elle est résistante à l'eau et ses mesures sont très précises. Je ne peux plus m'en passer !"</p>
                         </div>
                     </div>
                 </div>
@@ -122,12 +121,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Arthur Morales</p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>La FitPro Active est une montre simple et efficace. Elle me rappelle de rester actif et les notifications sur mon poignet sont très pratiques.</p>
                         </div>
                     </div>
                 </div>
@@ -139,12 +137,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Thompson Emma </p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>La Galaxis impact est parfaite pour mes séances de course. Elle est légère, confortable. Je la recommande sans hésitation !</p>
                         </div>
                     </div>
                 </div>
@@ -156,12 +153,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Nguyen Eric</p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>J'ai choisi un bracelet en silicone ajustable pour ma montre connectée et je suis très satisfait de sa polyvalence. Je peux l'ajuster parfaitement à mon poignet et il est très confortable à porter.</p>
                         </div>
                     </div>
                 </div>
@@ -173,12 +169,11 @@ if ($cpt == 4) {
                             <img src="<?= TELECHARGEMENT . "produit/no-image.png" ?>" class="img-pp" width="80"
                                 height="80" alt="profil-pic">
                             <div class="pseudo">
-                                <p>Lucas Martin</p>
+                                <p>Dubois Jade</p>
                             </div>
                         </div>
                         <div class="description">
-                            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem
-                                ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+                            <p>J'ai opté pour un bracelet en acier inoxydable pour ma montre connectée et je suis impressionné par sa qualité. Il donne à ma montre un aspect premium et je reçois souvent des compliments à ce sujet.</p>
                         </div>
                     </div>
                 </div>
@@ -188,8 +183,12 @@ if ($cpt == 4) {
             
 
 
-        <div class="livraison-qualite-garanti">
+        
 
+</section>
+
+<div class="livraison-qualite-garanti">
+                
             <div class="livraison">
                 <iconify-icon icon="bi:box-seam-fill" style="color: #004870;" width="50" height="50"></iconify-icon>
                 <div class="text-desc">
@@ -215,8 +214,6 @@ if ($cpt == 4) {
             </div>
 
         </div>
-
-</section>
    
 </body>
 
