@@ -10,8 +10,7 @@
 
 - Ce projet est un site d’E-commerce orienté autour de la vente de montre connecté destinée au sportif.
 
-- [Lien du site]<https://mjm03.fr/dv22elamrani/>
-
+- [Lien du site](https://mjm03.fr/dv22elamrani/)
 
 ### Fonctionnalités
 
