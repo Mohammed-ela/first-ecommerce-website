@@ -10,7 +10,7 @@
 
 - Ce projet est un site d’E-commerce orienté autour de la vente de montre connecté destinée au sportif.
 
-- [Lien du site]<'https://mjm03.fr/dv22elamrani/'>
+- [Lien du site]<https://mjm03.fr/dv22elamrani/>
 
 
 ### Fonctionnalités
@@ -25,11 +25,11 @@
     - HTML5
     - CSS3 / SASS
     - PHP 8 /mySQL + CRUD
-    - BDD
+    - BDD My_SQL
     - Architecture MVC
     - JavaScript 
-    - Bootstrap (admin)
-    - Librairie Iconify / fontawesome
+    - Bootstrap (backoffice)
+    - Librairie Iconify / fontawesome / Slider.js
     - Python
     - Librairie Flask
     - Responsivité
