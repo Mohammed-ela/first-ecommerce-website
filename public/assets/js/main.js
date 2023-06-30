@@ -21,13 +21,17 @@ nombreArticles = valeurSpan;
     }
 
 }
-
+        //pour partager un element , on copie le lien du produit spécifique 
 function copyCurrentUrl() {
+        //on enregistre le lien du href dans une constante
     const currentUrl = window.location.href;
+        // on ajoute le href dans le clipboard grace a navigator.clipboard
     navigator.clipboard.writeText(currentUrl)
       .then(() => {
+        // si ça fonctionne 
         alert('Le lien a été copié dans le presse-papiers.');
       })
+        // si ça fonctionne pas 
       .catch((error) => {
         console.error('Erreur lors de la copie du lien :', error);
       });
